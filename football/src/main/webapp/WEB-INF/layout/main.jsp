@@ -27,15 +27,7 @@
         }
     </style>
 </head>
-<div class="mainphoto">
-    <!-- <marquee direction="right" behavior="scroll"> -->
-    <%
-        for (int i = 1; i < 13; i++) {%>
-    <img src="./image/mycar/mycar<%=i%>.png">
-    <%}
-    %>
-    <!-- </marquee> -->
-
-</div>
+<body>
+main
 </body>
 </html>
