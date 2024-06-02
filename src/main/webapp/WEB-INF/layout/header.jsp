@@ -11,12 +11,35 @@
           rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
     <style>
-        body * {
-            font-family: 'Jua';
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        .header {
+            background-color: #6fe4e0;
+            text-align: center;
+            padding: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .navbar {
+            background-color: #4a90e2;
+            display: flex;
+            justify-content: center;
+            padding: 10px;
         }
     </style>
 
 </head>
 <body>
+<div class="header">프리미어리그</div>
+<div class="navbar">
+    <button>알림</button>
+    <button>순위</button>
+    <button>게시판</button>
+    <button>로그아웃</button>
+</div>
 </body>
 </html>

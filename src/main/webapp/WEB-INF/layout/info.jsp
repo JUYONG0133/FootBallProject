@@ -14,10 +14,37 @@
         body * {
             font-family: 'Jua';
         }
+        .chat-box {
+            width: 200px;
+            border: 1px solid #ddd;
+            padding: 10px;
+            background-color: white;
+        }
+        .chat-box .message {
+            margin: 10px 0;
+        }
 
     </style>
 
 </head>
 <body>
+<div class="chat-box">
+    <div class="message">
+        <strong>Helena Hunt</strong>
+        <p>Active 20m ago</p>
+    </div>
+    <div class="message">
+        <p>Simple</p>
+    </div>
+    <div class="message">
+        <p>Boom</p>
+    </div>
+    <div class="message">
+        <p>Hmmm</p>
+        <p>I think I get it</p>
+        <p>Will head to the Help Center</p>
+    </div>
+    <input type="text" placeholder="Enter...">
+</div>
 </body>
 </html>

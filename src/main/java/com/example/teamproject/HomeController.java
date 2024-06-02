@@ -9,7 +9,8 @@ public class HomeController {
     @GetMapping("/")
     public String home(){
 
-        return "layout/main";
+        return "redirect:./test/list";
+
     }
 
 }

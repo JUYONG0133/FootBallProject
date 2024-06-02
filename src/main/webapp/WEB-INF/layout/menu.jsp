@@ -14,7 +14,6 @@
          body *{
              font-family: 'Jua';
          }
-         /* 09 Desktop navigation bar */
 
          div.menu {
              box-sizing: border-box;
