@@ -26,7 +26,7 @@ public class TeamrankController {
     private static final String MATCHES_URL_TEMPLATE = "https://api.football-data.org/v4/teams/%d/matches";
 
 
-    @GetMapping("test/list")
+    @GetMapping("schedule/sa")
     public String home(Model model) {
         int season = 2023;  // 원하는 시즌 ID
         String url = String.format(URL_TEMPLATE, season);
@@ -65,10 +65,10 @@ public class TeamrankController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return "test/home";
+        return "schedule/home";
     }
 
-    @GetMapping("/test/topscore")
+    @GetMapping("/sa/topscore")
     public String topScore(Model model) {
         int season = 2023;  // 원하는 시즌 ID
         String url = String.format(TOP_SCORERS_URL, season);
@@ -103,10 +103,10 @@ public class TeamrankController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return "test/score";
+        return "schedule/score";
     }
     
-    @GetMapping("/test/teamMatches")
+    @GetMapping("/sa/teamMatches")
     public String teamMatches(@RequestParam("teamId") int teamId, Model model) {
         String url = String.format(MATCHES_URL_TEMPLATE, teamId);
 
