@@ -10,17 +10,17 @@ import java.util.List;
 
 
 @Mapper
-public interface borardMapperInter {
+public interface BoardMapperInter {
     @Insert("""
-            insert into board (num,nickname,title,content,writeday) values (#{num},#{nickname},#{title},#{content},now())
+            insert into board (nickname,myid,title,content,photo,writeday) values (#{nickname},#{nickname},#{title},#{content},#{photo},now())
             """)
-    public void insertAnswer(BoardDto dto);
+    public void insertBoard(BoardDto dto);
 
-    @Select("select * from board where num=#{num} order by aidx desc")
-    public List<BoardDto> getAnswerData(int num);
+    public int getMaxNum();
 
-    @Delete("delete from board where aidx=#{aidx}")
-    public void deleteAnswer(int aidx);
+    public BoardDto getData(int num);
+
+
 }
 
 
