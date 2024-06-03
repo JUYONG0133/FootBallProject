@@ -7,10 +7,10 @@
         <put-attribute name="header" value="/WEB-INF/layout/header.jsp"/>
         <put-attribute name="menu" value="/WEB-INF/layout/menu.jsp"/>
         <put-attribute name="info" value="/WEB-INF/layout/info.jsp"/>
-        <put-attribute name="main" value="/WEB-INF/test/home.jsp"/>
+        <put-attribute name="main" value="/WEB-INF/test/main.jsp"/>
     </definition>
     <!-- macro -->
     <definition name="*/*" extends="mainLayout">
-        <put-attribute name="home" value="/WEB-INF/{1}/{2}.jsp"/>
+        <put-attribute name="main" value="/WEB-INF/{1}/{2}.jsp"/>
     </definition>
 </tiles-definitions>
