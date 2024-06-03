@@ -38,8 +38,5 @@
 <body>
 <c:set var="root" value="<%=request.getContextPath()%>"/>
 <div class="header"><img src="${root}/image/uefalogo.jpeg" class="logo"> 해외 축구 갤러리</div>
-
-
-
 </body>
 </html>

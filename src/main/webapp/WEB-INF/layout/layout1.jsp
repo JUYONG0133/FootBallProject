@@ -35,7 +35,6 @@
             width: 100%;
             height: 6px;
             line-height: 60px;
-
         }
         div.mainlayout > div.info {
             top: 250px;
