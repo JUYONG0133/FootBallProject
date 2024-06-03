@@ -60,6 +60,8 @@ public class BoardWriteController {
             HttpServletRequest request,
             HttpSession session
     )
+
+
     {
 
         String photo=storageService.uploadFile(bucketName, folderName, upload);
