@@ -1,4 +1,4 @@
-package controller;
+package controller.league;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-public class testController {
+public class TeamrankController {
 
     private static final String API_KEY = "5b4a617fdb1446828056d2cbe1e1df4b";
     private static final String URL_TEMPLATE = "https://api.football-data.org/v4/competitions/SA/standings?season=%d";

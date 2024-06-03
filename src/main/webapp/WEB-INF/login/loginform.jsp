@@ -107,6 +107,7 @@
 <body>
 <div class="container">
     <h1>회원가입</h1>
+    <form action="./insert" method="post" enctype="multipart/form-data">
     <div class="profile-section">
         <img src="https://via.placeholder.com/50" alt="Profile Image" id="showimg">
         <div>
@@ -123,7 +124,7 @@
     </div>
     <div class="form-group">
     <label>비밀번호</label>
-    <input type="password" name="pw" value="" placeholder="비밀번호를 입력하세요" required>
+    <input type="password" name="pw" value="" placeholder="8글자이내로 입력하세요" maxlength="8" required>
     </div>
     <div class="form-group">
         <label>닉네임</label>
@@ -135,6 +136,7 @@
     </div>
     <button class="save-btn" type="submit">회원가입</button>
 </div>
+</form>
 </div>
 </body>
 </html>

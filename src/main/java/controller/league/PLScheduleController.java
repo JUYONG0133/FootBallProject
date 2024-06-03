@@ -1,4 +1,4 @@
-package com.example.teamproject;
+package controller.league;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
