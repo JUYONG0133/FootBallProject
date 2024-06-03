@@ -99,8 +99,8 @@
                     $.each(data,function(idx,ele){
                         s+=
                             `
-					  \${ele.writer}(\${ele.myid})
-					  <span class="aday">\${ele.writeday}</span>
+					  \${ele.nickname}(\${ele.myid})
+					  <span class="aday">\${ele.nickname}</span>
 					  `;
                         //로그인중이면서 댓글 아이디와 로그인 아이디가 같을경우 삭제 아이콘 추가
                         if(loginok=='yes' && loginid==ele.myid){
@@ -179,16 +179,9 @@
     </c:if>
     <tr>
         <td class="buttons">
-            <!-- 새글 -->
-            <button type="button" class="btn btn-sm btn-outline-success"
-                    onclick="location.href='./form'">
-                <i class="bi bi-pencil-fill"></i>
-                글쓰기</button>
 
-            <!-- 답글 -->
-            <button type="button" class="btn btn-sm btn-outline-secondary"
-                    onclick="location.href='./form?num=${dto.num}&regroup=${dto.regroup}&restep=${dto.restep}&relevel=${dto.relevel}&currentPage=${currentPage}'">
-                답글</button>
+
+
 
             <!-- 수정,삭제는 로그인중이며 자기가 쓴글에만 나타나게 하기 -->
             <c:if

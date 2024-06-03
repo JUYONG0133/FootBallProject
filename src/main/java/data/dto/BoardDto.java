@@ -21,6 +21,7 @@ public class BoardDto {
     private String title;
     private String content;
     private String photo;
+    private int readcount;
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm",timezone = "Asia/Seoul")
     private Timestamp writeday;
 
