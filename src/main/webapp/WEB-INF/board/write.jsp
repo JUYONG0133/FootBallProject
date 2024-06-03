@@ -17,12 +17,12 @@
     }
 
 </style>
-<c:if test="${sessionScope.loginok==null}">
-    <script type="text/javascript">
-        alert("먼저 로그인 후 글을 작성해주세요.");
-        history.back();
-    </script>
-</c:if>
+<%--<c:if test="${sessionScope.loginok==null}">--%>
+<%--    <script type="text/javascript">--%>
+<%--        alert("먼저 로그인 후 글을 작성해주세요.");--%>
+<%--        history.back();--%>
+<%--    </script>--%>
+<%--</c:if>--%>
 <body>
 <form action="./insert" method="post" enctype="multipart/form-data">
     <!--hidden -->

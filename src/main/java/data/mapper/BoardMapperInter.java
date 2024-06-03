@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
+import java.util.Map;
 
 
 @Mapper
@@ -19,5 +20,9 @@ public interface BoardMapperInter {
 
     public BoardDto getData(int num);
 
+    public List<BoardDto> getPagingList(Map<String,Integer> map);
 
+    public int getTotalCount();
+
+    public void updateReadcount(int num);
 }

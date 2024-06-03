@@ -5,7 +5,9 @@ import data.mapper.BoardMapperInter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class BoardService {
@@ -30,9 +32,28 @@ public class BoardService {
 //        BoardInter.deleteAnswer(aidx);
 //    }
 
+    public List<BoardDto> getPagingList(int start,int perpage)
+    {
+        Map<String, Integer> map=new HashMap<>();
+        map.put("start", start);
+        map.put("perpage", perpage);
+
+        return BoardInter.getPagingList(map);
+    }
+
     public BoardDto getData(int num)
     {
         return BoardInter.getData(num);
+    }
+
+    public int getTotalCount()
+    {
+        return BoardInter.getTotalCount();
+    }
+
+    public void updateReadcount(int num)
+    {
+        BoardInter.updateReadcount(num);
     }
 
 }
