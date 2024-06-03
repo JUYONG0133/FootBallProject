@@ -20,10 +20,10 @@
 <div class="container">
     <h1 class="mt-4 d-flex align-items-center">
         경기 일정
-        <button type="button" class="btn btn-sm btn-secondary ms-auto me-2" onclick="location.href='/test/pl?month=5'">프리미어리그</button>
-        <button type="button" class="btn btn-sm btn-secondary  me-2" onclick="location.href='/test/a1?month=5'">세리에 A</button>
-        <button type="button" class="btn btn-sm btn-secondary me-2" onclick="location.href='/test/bun?month=5'">분데스리가</button>
-        <button type="button" class="btn btn-sm btn-secondary me-2" onclick="location.href='/test/LL?month=5'">라리가</button>
+        <button type="button" class="btn btn-sm btn-secondary ms-auto me-2" onclick="location.href='/schedule/pl?month=5'">프리미어리그</button>
+        <button type="button" class="btn btn-sm btn-secondary  me-2" onclick="location.href='/schedule/a1?month=5'">세리에 A</button>
+        <button type="button" class="btn btn-sm btn-secondary me-2" onclick="location.href='/schedule/bun?month=5'">분데스리가</button>
+        <button type="button" class="btn btn-sm btn-secondary me-2" onclick="location.href='/schedule/LL?month=5'">라리가</button>
     </h1>
 
     <form method="get" action="${pageContext.request.contextPath}/test/bun" class="mb-4">
