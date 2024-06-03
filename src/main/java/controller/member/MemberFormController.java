@@ -1,4 +1,3 @@
-/*
 package controller.member;
 
 import data.dto.MemberDto;
@@ -12,6 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 @Controller
 public class MemberFormController {
@@ -19,17 +19,17 @@ public class MemberFormController {
     @Autowired
     private MemberService memberService;
 
-    private String bucketName = "bitcamp-bucket-56";
-    private String folderName = "photocommon";
+    private String bucketName = "bitcamp-bh-98";
+    private String folderName = "football";
 
     @Autowired
     private NcpObjectStorageService storageService;
 
 
-    @GetMapping("/member/form")
+    @GetMapping("/login/form")
     public String form(){
 
-        return "member/memberform";
+        return "login/loginform";
     }
 
     @ResponseBody   //json으로 반환
@@ -45,42 +45,23 @@ public class MemberFormController {
         return map;
     }
 
-    @PostMapping("/member/insert")
+    @PostMapping("/login/insert")
     public String saveData(
             @ModelAttribute MemberDto dto,
             @RequestParam("myfile")MultipartFile myfile,
             HttpServletRequest request
             )
     {
-        //업로드될 경로
-        */
-/*String savePath = request.getSession().getServletContext().getRealPath("/save");
-
-        //업로드한 파일의 확장자 분리
-        String ext = myfile.getOriginalFilename().split("\\.")[1];
-
-        //업로드 할 파일명
-        String photo = UUID.randomUUID()+"."+ext;
-        dto.setPhoto(photo);
-
-        //실제 업로드
-        try {
-            myfile.transferTo(new File(savePath+"/"+photo));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }*//*
-
 
         //스토리지에 업로드하기
-        String photo = storageService.uploadFile(bucketName, folderName, myfile);
-        dto.setPhoto(photo);    //업로드된 UUID 파일명을 dto에 저장
+        String profile = storageService.uploadFile(bucketName, folderName, myfile);
+        dto.setProfile(profile);    //업로드된 UUID 파일명을 dto에 저장
 
 
         //db에 저장
         memberService.insertMember(dto);
 
-        return "redirect:./list";
+        return "redirect:/";
     }
 
 }
-*/
