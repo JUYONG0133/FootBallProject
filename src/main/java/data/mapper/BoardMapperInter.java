@@ -1,10 +1,9 @@
 package data.mapper;
 
+import data.dto.BoardDto;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
-import data.dto.BoardDto;
-import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 
@@ -22,5 +21,3 @@ public interface BoardMapperInter {
 
 
 }
-
-
