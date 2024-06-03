@@ -7,6 +7,7 @@ import data.dto.BoardDto;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
+import java.util.Map;
 
 
 @Mapper
@@ -20,7 +21,11 @@ public interface BoardMapperInter {
 
     public BoardDto getData(int num);
 
+    public List<BoardDto> getPagingList(Map<String,Integer> map);
 
+    public int getTotalCount();
+
+    public void updateReadcount(int num);
 }
 
 

@@ -28,8 +28,8 @@ public class BoardWriteController {
     @Autowired
     private MemberService memberService;
 
-    private String bucketName="bitcamp-bucket-56";
-    private String folderName="photocommon";
+    private String bucketName = "bitcamp-bh-98";
+    private String folderName = "football";
 
     @Autowired
     private NcpObjectStorageService storageService;
@@ -49,7 +49,7 @@ public class BoardWriteController {
         model.addAttribute("currentPage",currentPage);
         model.addAttribute("subject",subject);
 
-        return "board/writeform";
+        return "board/write";
     }
 
     @PostMapping("/insert")

@@ -8,5 +8,14 @@
     <select id="getData" parameterType="int" resultType="BoardDto">
         select * from reboard where num=#{num}
     </select>
+    <select id="getPagingList" resultType="BoardDto" parameterType="Map">
+        select * from board order by num=#{num}
+    </select>
+    <select id="getTotalCount" resultType="int">
+        select count(*) from board
+    </select>
 
+    <update id="updateReadcount" parameterType="int">
+        update reboard set readcount=readcount+1 where num=#{num}
+    </update>
 </mapper>
