@@ -44,9 +44,9 @@
 <body>
 <div class="menu">
     <div class="bt" style="margin-left: 500px;">
-        <button type="button" onclick="location.href='../home.jsp'">Home</button>
-        <button type="button" onclick="location.href='${root}/test/pl?month=5'">일정</button>
-    <button type="button" onclick="location.href='${root}/test/list'">순위</button>
+        <button type="button" onclick="location.href='${root}/'">Home</button>
+        <button type="button" onclick="location.href='${root}/schedule/pl?month=5'">일정</button>
+    <button type="button" onclick="location.href='${root}/schedule/sa'">순위</button>
     <button type="button" onclick="location.href='../board.jsp'">게시판</button>
         <img src="../aa.jpg"  style="border: 3px solid black; border-radius: 20px; margin-left: 250px;">
         <button type="button">로그인</button>

@@ -23,7 +23,7 @@ public class A1ScheduleController {
     private final String apiKey = "04a2c226e6msh4fd9105451b11e8p1198dajsn28b832428f80"; // 본인의 API 키로 변경
     private final String apiUrl = "https://api-football-v1.p.rapidapi.com/v3/";
 
-    @GetMapping("/test/a1")
+    @GetMapping("/schedule/a1")
     public String test(@RequestParam(required = false, defaultValue = "1") int month,
                        @RequestParam(required = false, defaultValue = "135") int league,
                        @RequestParam(required = false, defaultValue = "2023") int season,
@@ -48,7 +48,7 @@ public class A1ScheduleController {
             model.addAttribute("error", "경기 일정을 불러오는데 실패했습니다.");
         }
 
-        return "test/A1_league";
+        return "schedule/A1_league";
     }
 
     private List<Fixture> parseFixtures(String result, int month) throws IOException {
