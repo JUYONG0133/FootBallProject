@@ -34,8 +34,8 @@ public interface MemberMapperInter {
     @Update("update login set profile=#{photo} where num=#{num}")
     public void updatePhoto(Map<String, Object> map);
 
-/*    @Update("update login set name=#{name}, hp=#{hp}, email=#{email}, addr=#{addr}, birthday=#{birthday} where num=#{num}")
-    public void updateMember(MemberDto dto);*/
+    @Update("update login set pw=#{pw}, nickname=#{nickname}, profile=#{profile}, email=#{email} where num=#{num}")
+    public void updateMember(MemberDto dto);
 
 /*
     @Delete("delete from login where num=#{num}")
@@ -50,8 +50,6 @@ public interface MemberMapperInter {
             """)
     public int isLoginCheck(String myid, String pass);
 
-    @Select("select * from login where myid=#{myid}")
-    public MemberDto getDataById(String myid);
 
 
 }
