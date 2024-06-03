@@ -41,18 +41,47 @@
     </style>
 </head>
 <c:set  var="root" value="<%=request.getContextPath()%>"/>
+<script type="text/javascript">
+    $(function (){
+        $("#loginfrm").submit(function (e){
+            //기본 이벤트 무효화
+            e.preventDefault();
+            //폼안의 입력값 읽기
+            let fdata = $(this).serialize();
+            //alert(fdata);
+            $.ajax({
+                type:"get",
+                dataType:"json",
+                url:`${root}/member/login`,
+                data:fdata,
+                success:function (data){
+                    if(data.status == 'success'){
+                        //페이지 새로고침
+                        location.reload();
+                    }
+                    else {
+                        alert("아이디 또는 비밀번호가 맞지않습니다")
+                    }
+                }
+            });
+        });
+        //로그아웃 버튼
+        $("#btnlogout").click(function (){
+            $.ajax({
+                type:"get",
+                dataType: "text",
+                url: `${root}/member/logout`,
+                success:function (){
+                    //전체 페이지 새로고침
+                    location.reload();
+                }
+            })
+        });
+
+    }); //close function
+</script>
+
 <body>
-<div class="menu">
-    <div class="bt" style="margin-left: 500px;">
-        <button type="button" onclick="location.href='${root}/'">Home</button>
-        <button type="button" onclick="location.href='${root}/schedule/pl?month=5'">일정</button>
-    <button type="button" onclick="location.href='${root}/schedule/sa'">순위</button>
-    <button type="button" onclick="location.href='../board.jsp'">게시판</button>
-        <img src="../aa.jpg"  style="border: 3px solid black; border-radius: 20px; margin-left: 250px;">
-        <button type="button">로그인</button>
-        <button type="button" onclick="location.href='../loginform.jsp'">회원가입</button>
-    </div>
-</div>
 
 <!-- 로그인 모달 다이얼로그 -->
 <div class="modal" id="myLoginModal">
@@ -103,6 +132,27 @@
         </div>
     </div>
 </div>
+
+
+<div class="menu">
+    <div class="bt" style="margin-left: 500px;">
+        <button type="button" onclick="location.href='${root}/'">Home</button>
+        <button type="button" onclick="location.href='${root}/schedule/pl?month=5'">일정</button>
+    <button type="button" onclick="location.href='${root}/schedule/sa'">순위</button>
+    <button type="button" onclick="location.href='../board.jsp'">게시판</button>
+        <img src="../aa.jpg"  style="border: 3px solid black; border-radius: 20px; margin-left: 250px;">
+        <c:if test="${sessionScope.loginok==null}">
+            <button type="button" id="btnlogin" data-bs-toggle="modal" data-bs-target="#myLoginModal">로그인</button>
+            <button type="button" onclick="location.href='${root}/login/form'">회원가입</button>
+        </c:if>
+        <c:if test="${sessionScope.loginok!=null}">
+            <b style="font-size: 20px;">${sessionScope.loginid}님</b>
+            <button type="button" id="btnlogout" style="margin-left: 20px;">로그아웃</button>
+        </c:if>
+
+    </div>
+</div>
+
 
 </body>
 </html>

@@ -101,8 +101,46 @@
                 reader.readAsDataURL($(this)[0].files[0]);
             }
         });
+        //중복버튼 이벤트
+        $("#btncheckid").click(function(){
+            if($("#myid").val()==''){
+                alert("가입할 아이디를 입력해주세요");
+                return;
+            }
 
+            $.ajax({
+                type:"get",
+                dataType:"json",
+                url:"./idcheck",
+                data:{"searchid":$("#myid").val()},
+                success:function(data){
+                    if(data.count==0){
+                        alert("가입 가능한 아이디입니다");
+                        jungbok=true;
+                    }else{
+                        alert("이미 가입되어있는 아이디입니다");
+                        jungbok=false;
+                        $("#myid").val("");
+                    }
+                }
+            });
+        });
+
+        //아이디를 입력시 다시 중복확인을 누르도록 중복변수를 초기화
+        $("#myid").keyup(function(){
+            jungbok=false;
+        });
     });  //close function
+
+
+    function check()
+    {
+        if(!jungbok){
+            alert("아이디 중복확인을 해주세요");
+            return false;//false반환시 action 실행을 안함
+        }
+    }
+
 </script>
 <body>
 <div class="container">
@@ -111,31 +149,31 @@
     <div class="profile-section">
         <img src="https://via.placeholder.com/50" alt="Profile Image" id="showimg">
         <div>
-            <input type="file" id="myfile">
+            <input type="file" id="myfile" name="myfile">
         </div>
     </div>
     <div class="form-group">
         <label>이름</label>
-        <input type="text" id="username" name="name" value="" placeholder="이름을 입력하세요" required>
+        <input type="text" id="username" name="name"placeholder="이름을 입력하세요" required>
     </div>
     <div class="form-group">
         <label>아이디</label>
-        <input type="text" name="id" value="" placeholder="아이디를 입력하세요" required>
+        <input type="text" name="id" placeholder="아이디를 입력하세요" required>
+        <button type="button" class="btn btn-sm btn-danger" id="btncheckid">중복확인</button>
     </div>
     <div class="form-group">
     <label>비밀번호</label>
-    <input type="password" name="pw" value="" placeholder="8글자이내로 입력하세요" maxlength="8" required>
+    <input type="password" name="pw" placeholder="8글자이내로 입력하세요" maxlength="8" required>
     </div>
     <div class="form-group">
         <label>닉네임</label>
-        <input type="text" name="nickname" value="" placeholder="닉네임을 입력하세요" required>
+        <input type="text" name="nickname" placeholder="닉네임을 입력하세요" required>
     </div>
     <div class="form-group">
         <label>이메일</label>
-        <input type="email" name="email" value="" placeholder="이메일을 입력하세요" required>
+        <input type="email" name="email" placeholder="이메일을 입력하세요" required>
     </div>
     <button class="save-btn" type="submit">회원가입</button>
-</div>
 </form>
 </div>
 </body>
