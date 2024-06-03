@@ -11,20 +11,15 @@
           rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        body * {
+            font-family: 'Jua';
         }
-
+        div.header{
+        }
     </style>
 
 </head>
 <body>
 <div class="header">프리미어리그</div>
-<div class="navbar">
-    <button>알림</button>
-    <button>순위</button>
-    <button>게시판</button>
-    <button>로그아웃</button>
-</div>
 </body>
 </html>
