@@ -15,24 +15,11 @@
              font-family: 'Jua';
          }
 
-         div.menu {
-             box-sizing: border-box;
-
-             position: absolute;
-             width: 1425px;
-             height: 164px;
-             left: 0px;
-             top: 167px;
-
-             background: #4589EF;
-             border-bottom: 1px solid #E0E0E0;
-         }
         </style>
 
 </head>
 <body>
 <div class="menu">
-aaaa
 
 </div>
 

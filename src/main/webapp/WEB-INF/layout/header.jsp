@@ -13,23 +13,8 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f5f5f5;
         }
-        .header {
-            background-color: #6fe4e0;
-            text-align: center;
-            padding: 20px;
-            font-size: 24px;
-            font-weight: bold;
-        }
-        .navbar {
-            background-color: #4a90e2;
-            display: flex;
-            justify-content: center;
-            padding: 10px;
-        }
+
     </style>
 
 </head>

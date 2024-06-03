@@ -1,4 +1,4 @@
-package test.controller;
+package com.example.teamproject;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-public class jyController {
+public class ScheduleController {
 
     private final String apiKey = "04a2c226e6msh4fd9105451b11e8p1198dajsn28b832428f80"; // 본인의 API 키로 변경
     private final String apiUrl = "https://api-football-v1.p.rapidapi.com/v3/";
