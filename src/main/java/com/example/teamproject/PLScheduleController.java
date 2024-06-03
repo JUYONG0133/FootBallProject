@@ -18,12 +18,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-public class ScheduleController {
+public class PLScheduleController {
 
     private final String apiKey = "04a2c226e6msh4fd9105451b11e8p1198dajsn28b832428f80"; // 본인의 API 키로 변경
     private final String apiUrl = "https://api-football-v1.p.rapidapi.com/v3/";
 
-    @GetMapping("/test/test")
+    @GetMapping("/test/pl")
     public String test(@RequestParam(required = false, defaultValue = "1") int month,
                        @RequestParam(required = false, defaultValue = "39") int league,
                        @RequestParam(required = false, defaultValue = "2023") int season,
@@ -53,7 +53,8 @@ public class ScheduleController {
                     if (fixtureMonth == month) {
                         String homeTeam = fixtureNode.path("teams").path("home").path("name").asText();
                         String awayTeam = fixtureNode.path("teams").path("away").path("name").asText();
-                        fixtures.add(new Fixture(homeTeam, awayTeam, date));
+                        String round = fixtureNode.path("league").path("round").asText(); // 라운드 정보 추가
+                        fixtures.add(new Fixture(homeTeam, awayTeam, date, round)); // Fixture 객체 생성 시 라운드 정보 추가
                     }
                 }
 
@@ -63,18 +64,21 @@ public class ScheduleController {
             e.printStackTrace();
             model.addAttribute("error", "경기 일정을 불러오는데 실패했습니다.");
         }
-        return "test/test";
+        return "test/PL_leqgue";
+
     }
 
     public static class Fixture {
         private String homeTeam;
         private String awayTeam;
         private String date;
+        private String round;
 
-        public Fixture(String homeTeam, String awayTeam, String date) {
+        public Fixture(String homeTeam, String awayTeam, String date, String round) {
             this.homeTeam = homeTeam;
             this.awayTeam = awayTeam;
             this.date = date;
+            this.round = round;
         }
 
         public String getHomeTeam() {
@@ -99,6 +103,14 @@ public class ScheduleController {
 
         public void setDate(String date) {
             this.date = date;
+        }
+
+        public String getRound() {
+            return round;
+        }
+
+        public void setRound(String round) {
+            this.round = round;
         }
     }
 }
