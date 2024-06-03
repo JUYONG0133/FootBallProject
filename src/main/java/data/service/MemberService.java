@@ -50,11 +50,9 @@ public class MemberService {
         memInter.updatePhoto(map);
     }
 
-/*
     public void updateMember(MemberDto dto) {
         memInter.updateMember(dto);
     }
-*/
 
     public boolean isEqualPassCheck(int num, String passwd) {
         Map<String, Object> map = new HashMap<String, Object>();
@@ -72,9 +70,5 @@ public class MemberService {
 
     public boolean isLoginCheck(String myid, String pass) {
         return memInter.isLoginCheck(myid, pass) == 1 ? true : false;
-    }
-    public MemberDto getDataById(String myid)
-    {
-        return memInter.getDataById(myid);
     }
 }
