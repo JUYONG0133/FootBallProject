@@ -1,9 +1,5 @@
 package controller.board;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.UUID;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -43,13 +39,11 @@ public class BoardWriteController {
             //새글일경우 null 값들이 넘어오므로 초기값을 지정한다
             //답글일경우는 원글이 갖고있는 각종 정보가 넘어온다
             @RequestParam(defaultValue = "0") int num,
-            @RequestParam(defaultValue = "0") int regroup,
-            @RequestParam(defaultValue = "0") int restep,
-            @RequestParam(defaultValue = "0") int relevel,
             @RequestParam(defaultValue = "1") int currentPage,
             Model model
     )
     {
+        String subject="";
 
         model.addAttribute("num",num);
         model.addAttribute("currentPage",currentPage);
@@ -67,25 +61,7 @@ public class BoardWriteController {
             HttpSession session
     )
     {
-//		//업로드할 폴더
-//		String saveFolder=request.getSession().getServletContext().getRealPath("/save");
-//		//업로드하지 않았을경우 "no",업로드했을경우 랜덤파일명으로 저장
-//		String photo=upload.getOriginalFilename();
-//		if(photo.equals("")) {
-//			photo="no";
-//		}else {
-//			//확장자 분리
-//			String ext=photo.split("\\.")[1];
-//			photo=UUID.randomUUID()+"."+ext;
-//
-//			//실제 폴더에 업로드
-//			try {
-//				upload.transferTo(new File(saveFolder+"/"+photo));
-//			} catch (IllegalStateException | IOException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
-//		}
+
         String photo=storageService.uploadFile(bucketName, folderName, upload);
         dto.setPhoto(photo);
 
@@ -106,6 +82,7 @@ public class BoardWriteController {
         //return "redirect:./list?currentPage="+currentPage;
 
         //추가후 상세페이지로 이동
-        return "redirect:./detail?num="+dto.getNum()+"&currentPage="+currentPage;
+//        return "redirect:./detail?num="+dto.getNum()+"&currentPage="+currentPage;
+        return "layout/main";
     }
 }
