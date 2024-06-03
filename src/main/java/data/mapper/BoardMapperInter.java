@@ -1,16 +1,13 @@
 package data.mapper;
 
+import data.dto.BoardDto;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
-import data.dto.BoardDto;
-import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 
-
-@Mapper
-public interface borardMapperInter {
+public interface BoardMapperInter {
     @Insert("""
             insert into board (num,nickname,title,content,writeday) values (#{num},#{nickname},#{title},#{content},now())
             """)
@@ -22,5 +19,3 @@ public interface borardMapperInter {
     @Delete("delete from board where aidx=#{aidx}")
     public void deleteAnswer(int aidx);
 }
-
-
