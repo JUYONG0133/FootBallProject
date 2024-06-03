@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan({"controller.*","data.*","tiles.config","com.example.teamproject","naver.cloud"})
+@ComponentScan({"controller","data.*","tiles.config","com.example.teamproject","naver.cloud"})
 
 public class TeamprojectApplication {
 
