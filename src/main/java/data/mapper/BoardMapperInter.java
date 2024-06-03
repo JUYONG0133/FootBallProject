@@ -12,7 +12,7 @@ import java.util.List;
 @Mapper
 public interface BoardMapperInter {
     @Insert("""
-            insert into board (nickname,myid,title,content,photo,writeday) values (#{nickname},#{nickname},#{title},#{content},#{photo},now())
+            insert into board (nickname,myid,title,content,photo,writeday) values (#{nickname},#{myid},#{title},#{content},#{photo},now())
             """)
     public void insertBoard(BoardDto dto);
 
