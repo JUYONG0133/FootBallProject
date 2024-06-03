@@ -24,34 +24,36 @@
     </script>
 </c:if>
 <body>
-<form action="./insert" method="post" enctype="multipart/form-data">
+<form action="./update" method="post" enctype="multipart/form-data">
     <!--hidden -->
-    <input type="hidden" name="num" value="${num}">
+    <input type="hidden" name="num" value="${dto.num}">
     <input type="hidden" name="currentPage" value="${currentPage}">
 
     <table class="table table-bordered" style="width: 400px;">
-        <caption align="top"><h4><b>${num==0?"새글쓰기":"답글쓰기"}</b></h4></caption>
+        <caption align="top"><h4><b>글 수정</b></h4></caption>
         <tr>
             <th width="100" class="table-warning">제목</th>
             <td>
-                <input type="text" name="title" value="${title}" class="form-control" required>
+                <input type="text" name="subject" value="${dto.subject}" class="form-control" required>
             </td>
         </tr>
         <tr>
             <th width="100" class="table-warning">사진</th>
             <td>
+                <img src="../save/${dto.uploadphoto}" style="width: 250px;height: 250px;" id="showimg1" onerror="this.src='../image/image1.png'"><br>
+                <b>사진을 선택하지 않으면 기존사진이 유지됩니다.</b>
                 <input type="file" name="upload" id="upload" class="form-control">
             </td>
         </tr>
         <tr>
             <td colspan="2">
-                <textarea name="content" required="required" style="width: 100%;height: 150px;" placeholder="내용을 입력하세요"></textarea>
+                <textarea name="content" required="required" style="width: 100%;height: 150px;" placeholder="내용을 입력하세요">${dto.content}</textarea>
             </td>
         </tr>
         <tr>
             <td colspan="2" align="center">
                 <button type="submit" class="btn btn-secondary"
-                        style="width: 100px;">글저장</button>
+                        style="width: 100px;">글수정</button>
 
                 <button type="button" class="btn btn-secondary"
                         style="width: 100px;"
@@ -61,7 +63,7 @@
 
     </table>
 
-    <img src="" id="showimg1" style="width: 400px; position: absolute; left: 450px; top: 40px;border: 1px solid black" onerror="this.src='../image/uefalogo.jpeg'">
+
 
 
 </form>

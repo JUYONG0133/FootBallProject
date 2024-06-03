@@ -84,7 +84,7 @@ public class BoardWriteController {
         //return "redirect:./list?currentPage="+currentPage;
 
         //추가후 상세페이지로 이동
-//        return "redirect:./detail?num="+dto.getNum()+"&currentPage="+currentPage;
-        return "layout/main";
+        return "redirect:./detail?num="+dto.getNum()+"&currentPage="+currentPage;
+       // return "board/list";
     }
 }

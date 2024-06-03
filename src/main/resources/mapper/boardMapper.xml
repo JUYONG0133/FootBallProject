@@ -9,7 +9,7 @@
         select * from board where num=#{num}
     </select>
     <select id="getPagingList" resultType="BoardDto" parameterType="Map">
-        select * from board order by num=#{num}
+        select * from board order by idx desc limit #{start},#{perpage}
     </select>
     <select id="getTotalCount" resultType="int">
         select count(*) from board
@@ -18,4 +18,10 @@
     <update id="updateReadcount" parameterType="int">
         update board set readcount=readcount+1 where num=#{num}
     </update>
+    <update id="updateBoard" parameterType="BoardDto">
+        update board set title=#{title},content=#{content} <if test="photo!=null">,photo=#{photo}</if> where num=#{num}
+    </update>
+    <delete id="deleteBoard" parameterType="int">
+        delete from board where num=#{num}
+    </delete>
 </mapper>

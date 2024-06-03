@@ -123,19 +123,19 @@
         }
     </script>
 </head>
-<c:set var="stpath" value="https://kr.object.ncloudstorage.com/bitcamp-bucket-56/photocommon"/>
+<c:set var="stpath" value="https://kr.object.ncloudstorage.com/bitcamp-bucket-98/football"/>
 
 <body>
 <table class="table" style="width: 500px;">
     <tr>
         <td>
-            <h2><b>${dto.subject}</b></h2>
+            <h2><b>${dto.title}</b></h2>
             <!-- 프로필 사진 -->
             <img src="${stpath}/${profile_photo}"
                  onerror="this.src='../image/noimage2.png'"
                  style="width: 45px;height: 45px;margin-right:5px;"
                  class="rounded-circle" align="left">
-            <b>${dto.writer}</b><br>
+            <b>${dto.nickname}</b><br>
             <span style="color: gray;font-size: 13px;">
 			  	<fmt:formatDate value="${dto.writeday}"
                                 pattern="yyyy.MM.dd HH:mm"/>
@@ -151,8 +151,8 @@
     </tr>
     <tr>
         <td>
-            <c:if test="${dto.uploadphoto!='no'}">
-                <img src="${stpath}/${dto.uploadphoto}"
+            <c:if test="${dto.photo!='no' and dto.photo!=null}">
+                <img src="${stpath}/${dto.photo}"
                      onerror="this.src='../image/noimage2.png'"
                      style="max-width: 300px;">
                 <br><br>

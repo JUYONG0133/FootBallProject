@@ -26,4 +26,8 @@ public interface BoardMapperInter {
     public int getTotalCount();
 
     public void updateReadcount(int num);
+
+    public void updateBoard(BoardDto dto);
+
+    public void deleteBoard(int num);
 }

@@ -16,15 +16,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-public class TeamrankController {
+public class saTeamrankController {
 
     private static final String API_KEY = "5b4a617fdb1446828056d2cbe1e1df4b";
-    private static final String URL_TEMPLATE = "https://api.football-data.org/v4/competitions/PL/standings?season=%d";
-    private static final String TOP_SCORERS_URL = "https://api.football-data.org/v4/competitions/PL/scorers?season=%d";
+    private static final String URL_TEMPLATE = "https://api.football-data.org/v4/competitions/SA/standings?season=%d";
+    private static final String TOP_SCORERS_URL = "https://api.football-data.org/v4/competitions/SA/scorers?season=%d";
     private static final String MATCHES_URL_TEMPLATE = "https://api.football-data.org/v4/teams/%d/matches";
 
 
-    @GetMapping("/rank/pl")
+    @GetMapping("/rank/sa")
     public String home(Model model) {
         int season = 2023;  // 원하는 시즌 ID
         String url = String.format(URL_TEMPLATE, season);
@@ -63,10 +63,10 @@ public class TeamrankController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return "rank/pl";
+        return "rank/sa";
     }
 
-    @GetMapping("/rank/plscore")
+    @GetMapping("/rank/sascore")
     public String topScore(Model model) {
         int season = 2023;  // 원하는 시즌 ID
         String url = String.format(TOP_SCORERS_URL, season);
@@ -101,7 +101,7 @@ public class TeamrankController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return "rank/score";
+        return "rank/sascore";
     }
     
 //    @GetMapping("/sa/teamMatches")
