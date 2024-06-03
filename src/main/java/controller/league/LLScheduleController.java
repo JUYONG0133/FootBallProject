@@ -1,4 +1,4 @@
-package com.example.teamproject;
+package controller.league;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -18,14 +18,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-public class BunScheduleController {
+public class LLScheduleController {
 
     private final String apiKey = "04a2c226e6msh4fd9105451b11e8p1198dajsn28b832428f80"; // 본인의 API 키로 변경
     private final String apiUrl = "https://api-football-v1.p.rapidapi.com/v3/";
 
-    @GetMapping("/test/bun")
+    @GetMapping("/test/LL")
     public String getSchedule(@RequestParam(required = false, defaultValue = "1") int month,
-                              @RequestParam(required = false, defaultValue = "78") int league, // 분데스리가 리그 ID
+                              @RequestParam(required = false, defaultValue = "140") int league, // 분데스리가 리그 ID
                               @RequestParam(required = false, defaultValue = "2023") int season,
                               Model model) {
         String endpoint = String.format("fixtures?league=%d&season=%d", league, season);
@@ -48,7 +48,7 @@ public class BunScheduleController {
             model.addAttribute("error", "경기 일정을 불러오는데 실패했습니다.");
         }
 
-        return "test/Bun_league";
+        return "test/LaLiga_league";
     }
 
     private List<Fixture> parseFixtures(String result, int month) throws IOException {
