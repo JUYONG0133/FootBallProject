@@ -21,7 +21,7 @@
         .header {
             background-color: #f8f9fa; /* 헤더 배경색을 흰색에 가깝게 조정 */
             color: #333; /* 흰색 텍스트 색상 */
-            /*padding: 20px 0; !* 패딩을 더 늘려줌 *!*/
+/*            padding: 20px 0; !* 패딩을 더 늘려줌 *!*/
             text-align: center;
             font-size: 32px; /* 더 큰 폰트 크기 */
             font-weight: bold; /* 굵은 텍스트 */
