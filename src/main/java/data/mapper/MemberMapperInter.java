@@ -23,6 +23,8 @@ public interface MemberMapperInter {
             """)
     public int isLoginCheck(String myid, String pass);
 
+    @Select("select * from login where myid=#{myid}")
+    public MemberDto getDataById(String myid);
 
 
 }
