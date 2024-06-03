@@ -46,7 +46,7 @@ public interface MemberMapperInter {
     public int isEqualPassCheck(Map<String, Object> map);
 
     @Select("""
-            select count(*) from studydb where id=#{myid} and pw=#{pass}
+            select count(*) from login where id=#{myid} and pw=#{pass}
             """)
     public int isLoginCheck(String myid, String pass);
 
