@@ -11,6 +11,7 @@ import java.sql.Timestamp;
 @NoArgsConstructor
 public class MemberDto {
 
+    private int num;
     private String id;
     private String pw;
     private String name;
