@@ -146,7 +146,7 @@
         </div>
         <div class="form-group">
             <label>가입일 :
-                <fmt:formatDate value="${dto.writeday}" pattern="yyyy-MM-dd HH:mm"/></label>
+                <fmt:formatDate value="${dto.writeday}" pattern="yyyy-MM-dd"/></label>
         </div>
         <button class="save-btn" type="submit">수정</button>
     </form>
