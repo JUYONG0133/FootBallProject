@@ -19,7 +19,9 @@
             text-align: center;
         }
         div.bt button {
-            width: 100px;
+            width: 120px;
+            height: 50px;
+            line-height: 30px;
             background-color: #ffffff;
             border: 2px solid #4071e3;
             border-radius: 20px;
@@ -36,19 +38,17 @@
             transform: translateY(-10px); /* 위로 5px 이동 */
             transition: transform 0.2s; /* 부드러운 이동 효과 */
         }
-        .a{
-            float: right;
-        }
     </style>
 </head>
 <body>
 <div class="menu">
-    <div class="bt">
+    <div class="bt" style="margin-left: 500px;">
     <button>일정</button>
     <button>순위</button>
     <button>게시판</button>
-        <img src="../aa.jpg" class="a" style="border: 3px solid black; border-radius: 20px;">
-        <button class="a">로그인</button>
+        <img src="../aa.jpg"  style="border: 3px solid black; border-radius: 20px; margin-left: 300px;">
+        <button>로그인</button>
+        <button>회원가입</button>
     </div>
 </div>
 </body>
