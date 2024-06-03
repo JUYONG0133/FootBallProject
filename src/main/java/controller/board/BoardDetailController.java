@@ -15,11 +15,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class BoardDetailController {
 
 
-
-
-
-
-
         @Autowired
         private BoardService boardService;
 
