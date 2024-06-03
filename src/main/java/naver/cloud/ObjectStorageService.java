@@ -1,4 +1,4 @@
-package cloud;
+package naver.cloud;
 
 import org.springframework.web.multipart.MultipartFile;
 

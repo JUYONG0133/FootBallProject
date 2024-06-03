@@ -1,4 +1,4 @@
-package com.example.teamproject.data;
+package data.dto;
 
 
 import lombok.AllArgsConstructor;

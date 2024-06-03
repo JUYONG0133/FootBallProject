@@ -1,10 +1,10 @@
-package com.example.teamproject.controller;
+package com.example.teamproject;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.example.teamproject.data.MatchInfo;
-import com.example.teamproject.data.ScorerInfo;
-import com.example.teamproject.data.TeamInfo;
+import data.dto.MatchInfo;
+import data.dto.ScorerInfo;
+import data.dto.TeamInfo;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
