@@ -74,6 +74,27 @@
         }
     </style>
 </head>
+<script>
+    let currentIndex = 0;
+
+    function moveLeft() {
+        const carousel = document.querySelector('.carousel');
+        if (currentIndex > 0) {
+            currentIndex—;
+            carousel.style.transform = `translateX(-${currentIndex * 110}px)`;
+        }
+    }
+
+    function moveRight() {
+        const carousel = document.querySelector('.carousel');
+        const images = document.querySelectorAll('.carousel img');
+        if (currentIndex < images.length - 4) { // 4 is the number of visible images
+            currentIndex++;
+            carousel.style.transform = `translateX(-${currentIndex * 110}px)`;
+        }
+    }
+</script>
+
 <body>
 
 <div class="content">
