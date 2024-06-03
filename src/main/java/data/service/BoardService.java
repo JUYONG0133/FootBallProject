@@ -1,4 +1,4 @@
-package data.service;
+/*package data.service;
 
 import data.dto.BoardDto;
 import data.mapper.BoardMapperInter;
@@ -57,3 +57,4 @@ public class BoardService {
     }
 
 }
+*/

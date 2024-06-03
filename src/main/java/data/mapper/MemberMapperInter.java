@@ -18,13 +18,37 @@ public interface MemberMapperInter {
                 """)
     public void insertMember(MemberDto dto);
 
+
+    @Select("SELECT COUNT(*) FROM login")
+    public int getTotalCount();
+
+    @Select("select * from login order by num desc")
+    public List<MemberDto> getAllMembers();
+
+    @Select("select * from login where num=#{num}")
+    public MemberDto getData(int num);
+
+    @Select("select * from login where id=#{myid}")
+    public MemberDto getDataById(String myid);
+
+    @Update("update login set profile=#{photo} where num=#{num}")
+    public void updatePhoto(Map<String, Object> map);
+
+/*    @Update("update login set name=#{name}, hp=#{hp}, email=#{email}, addr=#{addr}, birthday=#{birthday} where num=#{num}")
+    public void updateMember(MemberDto dto);*/
+
+/*
+    @Delete("delete from login where num=#{num}")
+    public void deleteMember(int num);
+*/
+
+    @Select("select count(*) from login where num=#{num} and pw=#{passwd}")
+    public int isEqualPassCheck(Map<String, Object> map);
+
     @Select("""
-            select count(*) from studydb where id=#{myid} and pw=#{pass}
+            select count(*) from login where id=#{myid} and pw=#{pass}
             """)
     public int isLoginCheck(String myid, String pass);
-
-    @Select("select * from login where myid=#{myid}")
-    public MemberDto getDataById(String myid);
 
 
 }
