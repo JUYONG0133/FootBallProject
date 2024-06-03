@@ -1,3 +1,4 @@
+/*
 package data.mapper;
 
 import data.dto.BoardDto;
@@ -21,3 +22,4 @@ public interface BoardMapperInter {
 
 
 }
+*/
