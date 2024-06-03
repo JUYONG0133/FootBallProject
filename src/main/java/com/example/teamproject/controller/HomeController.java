@@ -1,4 +1,4 @@
-package com.example.teamproject;
+package com.example.teamproject.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,7 +9,7 @@ public class HomeController {
     @GetMapping("/")
     public String home(){
 
-        return "redirect:./test/list";
+        return "layout/main";
 
     }
 

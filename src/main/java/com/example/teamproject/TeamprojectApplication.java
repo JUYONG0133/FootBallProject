@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan({"com.example.teamproject","test.*"})
+@ComponentScan({"com.example.teamproject.controller"})
 public class TeamprojectApplication {
 
 	public static void main(String[] args) {

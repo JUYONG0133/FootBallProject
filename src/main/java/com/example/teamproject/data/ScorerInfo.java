@@ -1,4 +1,4 @@
-package com.example.teamproject;
+package com.example.teamproject.data;
 
 public class ScorerInfo {
     private String playerName;
