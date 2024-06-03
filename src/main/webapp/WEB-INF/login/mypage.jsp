@@ -14,6 +14,7 @@
         body * {
             font-family: 'Jua';
         }
+
         .container {
             background-color: white;
             border-radius: 10px;
@@ -21,47 +22,57 @@
             padding: 20px;
             width: 400px;
         }
+
         .container h1 {
             text-align: center;
             font-size: 24px;
         }
+
         .profile-section {
             display: flex;
             align-items: center;
             margin-bottom: 20px;
         }
+
         .profile-section img {
             width: 50px;
             height: 50px;
             border-radius: 50%;
             margin-right: 15px;
         }
+
         .profile-section div {
             display: flex;
             flex-direction: column;
         }
+
         .profile-section .username {
             font-weight: bold;
         }
+
         .profile-section .change-photo {
             color: #007bff;
             cursor: pointer;
             font-size: 12px;
         }
+
         .form-group {
             margin-bottom: 15px;
         }
+
         .form-group label {
             display: block;
             margin-bottom: 5px;
             font-weight: bold;
         }
+
         .form-group input, .form-group textarea {
             width: 100%;
             padding: 10px;
             border: 1px solid #ddd;
             border-radius: 5px;
         }
+
         .form-group textarea {
             resize: vertical;
         }
@@ -84,19 +95,19 @@
 
 </head>
 <script type="text/javascript">
-    $(function(){
-        $("#myfile").change(function(){
+    $(function () {
+        $("#myfile").change(function () {
             //console.log($(this)[0]);//type 이 file 인경우 배열타입으로 넘어온다
-            let reg=/(.*?)\/(jpg|jpeg|png|gif)$/;
-            let f=$(this)[0].files[0];
-            if(!f.type.match(reg)){
+            let reg = /(.*?)\/(jpg|jpeg|png|gif)$/;
+            let f = $(this)[0].files[0];
+            if (!f.type.match(reg)) {
                 alert("이미지 파일만 가능합니다");
                 return;
             }
-            if(f){
-                let reader=new FileReader();
-                reader.onload=function(e){
-                    $("#showimg").attr("src",e.target.result);
+            if (f) {
+                let reader = new FileReader();
+                reader.onload = function (e) {
+                    $("#showimg").attr("src", e.target.result);
                 }
                 reader.readAsDataURL($(this)[0].files[0]);
             }
@@ -107,34 +118,38 @@
 <body>
 <div class="container">
     <h1>마이페이지</h1>
-    <div class="profile-section">
-        <img src="https://via.placeholder.com/50" alt="Profile Image" id="showimg">
-        <div>
-            <input type="file" id="myfile">
+    <form action="./update" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="num" value="${dto.num}">
+        <div class="profile-section">
+            <img src="https://via.placeholder.com/50" alt="Profile Image" id="showimg">
+            <div>
+                <input type="file" id="myfile">
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        <label>이름</label>
-        <input type="text" id="username" name="name" value="" required>
-    </div>
-    <div class="form-group">
-        <label>아이디</label>
-        <input type="text" name="id" value="" required>
-    </div>
-    <div class="form-group">
-        <label>비밀번호</label>
-        <input type="password" name="pw" value="" required>
-    </div>
-    <div class="form-group">
-        <label>닉네임</label>
-        <input type="text" name="nickname" value="" required>
-    </div>
-    <div class="form-group">
-        <label>이메일</label>
-        <input type="email" name="email" value="" required>
-    </div>
-    <button class="save-btn" type="submit">수정</button>
-</div>
+        <div class="form-group">
+            <label>이름 : ${dto.name}</label>
+        </div>
+        <div class="form-group">
+            <label>아이디 : ${dto.id}</label>
+        </div>
+        <div class="form-group">
+            <label>비밀번호</label>
+            <input type="password" name="pw" value="${dto.pw}" required>
+        </div>
+        <div class="form-group">
+            <label>닉네임</label>
+            <input type="text" name="nickname" value="${dto.nickname}" required>
+        </div>
+        <div class="form-group">
+            <label>이메일</label>
+            <input type="email" name="email" value="${dto.email}" required>
+        </div>
+        <div class="form-group">
+            <label>가입일 :
+                <fmt:formatDate value="${dto.writeday}" pattern="yyyy-MM-dd HH:mm"/></label>
+        </div>
+        <button class="save-btn" type="submit">수정</button>
+    </form>
 </div>
 </body>
 </html>

@@ -1,4 +1,4 @@
-/*package controller.member;
+package controller.member;
 
 import data.dto.MemberDto;
 import data.service.MemberService;
@@ -23,8 +23,8 @@ public class MemberUpdateController {
     @NonNull
     private MemberService memberService;
 
-    private String bucketName="bitcamp-bh-98";
-    private String folderName="football";
+    private String bucketName="bitcamp-bucket-56";
+    private String folderName="photocommon";
 
     @Autowired
     private NcpObjectStorageService storageService;
@@ -69,7 +69,7 @@ public class MemberUpdateController {
         //db로부터 dto 얻기
         MemberDto dto=memberService.getData(num);
         model.addAttribute("dto", dto);
-        return "member/updateform";
+        return "login/mypage";
     }
     //수정후 디테일 페이지로 이동
     @PostMapping("/update")
@@ -81,7 +81,7 @@ public class MemberUpdateController {
     }
 
     //{"status":"success" or "fail"}
-    @ResponseBody
+/*    @ResponseBody
     @GetMapping("/delete")
     public Map<String, String> delete(@RequestParam int num,@RequestParam String passwd)
     {
@@ -93,8 +93,5 @@ public class MemberUpdateController {
         }
         map.put("status", b?"success":"fail");
         return map;
-    }
+    }*/
 }
-
-
- */
