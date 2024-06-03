@@ -18,9 +18,15 @@
 </head>
 <body>
 <div class="container">
-    <h1 class="mt-4">경기 일정</h1>
+    <h1 class="mt-4 d-flex align-items-center">
+        경기 일정
+        <button type="button" class="btn btn-sm btn-secondary ms-auto me-2" onclick="location.href='/test/a1'">세리에 A</button>
+        <button type="button" class="btn btn-sm btn-secondary me-2" onclick="location.href='/test/bun'">분데스리가</button>
+        <button type="button" class="btn btn-sm btn-secondary me-2">버튼3</button>
+        <button type="button" class="btn btn-sm btn-secondary me-2">버튼4</button>
+    </h1>
 
-    <form method="get" action="${pageContext.request.contextPath}/test/test" class="mb-4">
+    <form method="get" action="${pageContext.request.contextPath}/test/a1" class="mb-4">
         <div class="input-group">
             <label class="input-group-text" for="monthSelect">월 선택</label>
             <select class="form-select" id="monthSelect" name="month">
@@ -41,24 +47,46 @@
         <table class="table table-striped mt-4">
             <thead>
             <tr>
+                <th>라운드</th>
                 <th>홈 팀</th>
                 <th>원정 팀</th>
                 <th>날짜</th>
             </tr>
             </thead>
-            <tbody>
+            <tbody id="fixtureTableBody">
             <c:forEach var="fixture" items="${fixtures}">
-                <c:if test="${fn:substring(fixture.date, 5, 7) == (param.month < 10 ? '0' : '') + param.month}">
-                    <tr>
-                        <td>${fixture.homeTeam}</td>
-                        <td>${fixture.awayTeam}</td>
-                        <td>${fn:substring(fn:replace(fixture.date, 'T', ' '), 0, 16)}</td> <!-- 'T'를 공백으로 대체 -->
-                    </tr>
-                </c:if>
+                <tr>
+                    <td>${fn:substringAfter(fixture.round, ' - ')} 라운드</td>
+                    <td>${fixture.homeTeam}</td>
+                    <td>${fixture.awayTeam}</td>
+                    <td>${fn:substring(fn:replace(fixture.date, 'T', ' '), 0, 16)}</td>
+                </tr>
             </c:forEach>
             </tbody>
         </table>
     </c:if>
 </div>
+
+<script>
+    $(document).ready(function () {
+        sortTableByDate();
+    });
+
+    function sortTableByDate() {
+        var rows = $('#fixtureTableBody tr').get();
+
+        rows.sort(function (a, b) {
+            var dateA = new Date($(a).find('td:eq(3)').text());
+            var dateB = new Date($(b).find('td:eq(3)').text());
+
+            return dateA - dateB;
+        });
+
+        $.each(rows, function (index, row) {
+            $('#fixtureTableBody').append(row);
+        });
+    }
+</script>
+
 </body>
 </html>
