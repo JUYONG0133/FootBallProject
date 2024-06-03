@@ -138,8 +138,8 @@
     <div class="bt" style="margin-left: 500px;">
         <button type="button" onclick="location.href='${root}/'">Home</button>
         <button type="button" onclick="location.href='${root}/schedule/pl?month=5'">일정</button>
-    <button type="button" onclick="location.href='${root}/schedule/sa'">순위</button>
-    <button type="button" onclick="location.href='../board.jsp'">게시판</button>
+    <button type="button" onclick="location.href='${root}/rank/pl'">순위</button>
+    <button type="button" onclick="location.href='${root}/board/list'">게시판</button>
         <c:if test="${sessionScope.loginok==null}">
             <button type="button" id="btnlogin" data-bs-toggle="modal" data-bs-target="#myLoginModal">로그인</button>
             <button type="button" onclick="location.href='${root}/login/form'">회원가입</button>

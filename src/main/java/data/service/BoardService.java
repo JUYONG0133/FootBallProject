@@ -56,4 +56,11 @@ public class BoardService {
         BoardInter.updateReadcount(num);
     }
 
+    public void updateBoard(BoardDto dto){
+        BoardInter.updateBoard(dto);
+    }
+    public void deleteBoard(int num){
+
+       BoardInter.deleteBoard(num);
+    }
 }

@@ -15,56 +15,33 @@ public class BoardListController {
     @Autowired
     private BoardService boardService;
 
-
     @GetMapping("/board/list")
     public String list(
             @RequestParam(defaultValue = "1") int currentPage,
             Model model
-    )
-    {
-        //총 글의 갯수
-        int totalCount=boardService.getTotalCount();
-        //페이징에 필요한 변수들
-        int perPage=10;//한페이지당 보여질 글의 갯수
-        int perBlock=5;//현재블럭에 보여질 페이지의 갯수
-        int start;//db 에서 가져올 시작번호
-        int startPage;//각 블럭에 보여질 시작페이지
-        int totalPage;//총 페이지수
-        int endPage;//각 블럭에 보여질 끝페이지
-        int no; //각 페이지에 보여질 시작번호
+    ) {
+        // 총 글의 갯수
+        int totalCount = boardService.getTotalCount();
 
-        //총 페이지수 구하기
-        totalPage=totalCount/perPage+(totalCount%perPage>0?1:0);
-        //각 블럭당 시작페이지 구하기
-        startPage=(currentPage-1)/perBlock*perBlock+1;
-        endPage=startPage+perBlock-1;
-        //endPage 가 총 페이지수보다 커서는 안된다
-        if(endPage>totalPage)
-            endPage=totalPage;
+        // 페이징에 필요한 변수들
+        int perPage = 10;  // 한 페이지당 보여질 글의 갯수
+        int perBlock = 5;  // 현재 블럭에 보여질 페이지의 갯수
+        int totalPage = (totalCount + perPage - 1) / perPage;  // 총 페이지 수
+        int startPage = ((currentPage - 1) / perBlock) * perBlock + 1;  // 각 블럭에 보여질 시작 페이지
+        int endPage = Math.min(startPage + perBlock - 1, totalPage);  // 각 블럭에 보여질 끝 페이지
+        int start = (currentPage - 1) * perPage;  // DB에서 가져올 시작 번호
 
-        //db 에서 가져올 글의 시작번호
-        //예:1페이지: 0,2페이지 : 5~
-        //각 페이지당 5개만 보여질경우 현재페이지에 따라서 시작번호가 달라지도록 공식 설정
-        start=(currentPage-1)*perPage;
+        // 목록 가져오기
+        List<BoardDto> list = boardService.getPagingList(start, perPage);
 
-        //각 페이지에 출력할 시작번호
-        //총 갯수가 20개일경우 1페이지는 20,2페이지는 15...
-        no=totalCount-(currentPage-1)*perPage;
-
-        //목록 가져오기
-        List<BoardDto> list=boardService.getPagingList(start, perPage);
-
-
-
-        //model 에 필요한 데이타 저장
+        // Model에 필요한 데이터 저장
         model.addAttribute("totalCount", totalCount);
         model.addAttribute("list", list);
-        //페이지 출력시 필요한 변수들을 모두 request 에 저장한다
-        model.addAttribute("currentPage",currentPage );
-        model.addAttribute("startPage",startPage );
-        model.addAttribute("endPage",endPage );
+        model.addAttribute("currentPage", currentPage);
+        model.addAttribute("startPage", startPage);
+        model.addAttribute("endPage", endPage);
         model.addAttribute("totalPage", totalPage);
-        model.addAttribute("no",no);
+        model.addAttribute("no", totalCount - start);  // 현재 페이지의 첫 글 번호
 
         return "board/boardlist";
     }
