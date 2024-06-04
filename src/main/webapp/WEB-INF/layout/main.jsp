@@ -29,6 +29,8 @@
         .carousel-wrapper {
             width: 500px;
             overflow: hidden;
+            position: relative;
+            margin-top: 50px;
         }
         .carousel {
             display: flex;
@@ -40,6 +42,13 @@
             object-fit: cover;
             border-radius: 5px;
             margin: 0 5px;
+        }
+        .carousel-title {
+            position: absolute;
+            margin-left: 80px;
+            transform: translateX(-50%);
+            color: blue;
+            font-weight: bold;
         }
         .news-table {
             margin-left: 20px;
@@ -83,27 +92,43 @@
 <div class="container">
     <div class="top-section">
         <div class="carousel-wrapper" style="margin-left: 20px;">
-            <b style="color: blue;">해외축구  이슈 Pick</b>
-            <div id="carouselExample" class="carousel" style="margin-top: 100px;">
-                <img src="https://via.placeholder.com/100" alt="Pick 1">
-                <img src="https://via.placeholder.com/100" alt="Pick 2">
-                <img src="https://via.placeholder.com/100" alt="Pick 3">
-                <img src="https://via.placeholder.com/100" alt="Pick 4">
-                <img src="https://via.placeholder.com/100" alt="Pick 5">
-                <img src="https://via.placeholder.com/100" alt="Pick 6">
-                <img src="https://via.placeholder.com/100" alt="Pick 7">
-                <img src="https://via.placeholder.com/100" alt="Pick 8">
+            <div class="carousel-title">해외축구 이슈 Pick</div>
+            <div id="carouselExample" class="carousel" style="margin-top: 50px;">
+                <a href="https://m.sports.naver.com/wfootball/article/477/0000494019">
+                    <img src="${root}/image/p1.png">
+                </a>
+                <a href="https://m.sports.naver.com/wfootball/article/117/0003837845">
+                    <img src="${root}/image/p2.png">
+                </a>
+                <a href="https://m.sports.naver.com/wfootball/article/139/0002203726">
+                    <img src="${root}/image/p3.png">
+                </a>
+                <a href="https://m.sports.naver.com/wfootball/article/109/0005090378">
+                    <img src="${root}/image/p4.png">
+                </a>
+                <a href="https://m.sports.naver.com/wfootball/article/076/0004152360">
+                    <img src="${root}/image/p5.png">
+                </a>
+                <a href="https://m.sports.naver.com/wfootball/article/477/0000494019">
+                    <img src="${root}/image/p6.png">
+                </a>
+                <a href="https://m.sports.naver.com/wfootball/article/117/0003837847">
+                    <img src="${root}/image/p7.png">
+                </a>
+                <a href="https://m.sports.naver.com/wfootball/article/477/0000494014">
+                    <img src="${root}/image/p8.png">
+                </a>
             </div>
             <div class="carousel-controls">
-                <button class="btn btn-light" onclick="moveCarousel(-1)"><i class="bi bi-chevron-left"></i></button>
-                <button class="btn btn-light" onclick="moveCarousel(1)"><i class="bi bi-chevron-right"></i></button>
+                <button class="btn btn-light" id="prev" style="background-color: #b6d2fc;"><i class="bi bi-chevron-left"></i></button>
+                <button class="btn btn-light" id="next" style="background-color: #b6d2fc;"><i class="bi bi-chevron-right"></i></button>
             </div>
         </div>
         <div class="news-table" style="margin-left: 130px;">
             <table class="table">
                 <thead>
                 <tr style="height: 30px;">
-                    <th style="background-color: #b7b7b7;"><b>이 시각 많이 본 뉴스</b><a href="https://sports.news.naver.com/wfootball/news/index?isphoto=N&type=popular"><b style="margin-left: 300px;">더보기</b></a></th>
+                    <th style="background-color: #a0b4e5;"><b>이 시각 많이 본 뉴스</b><a href="https://sports.news.naver.com/wfootball/news/index?isphoto=N&type=popular"><b style="margin-left: 300px; font-size: 12px;">더보기</b></a></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -139,8 +164,8 @@
     <div class="news-grid" style="margin-top: 100px;">
         <div class="news-card">
             <a href="https://m.sports.naver.com/wfootball/article/076/0004152391">
-            <img src="${root}/image/a1.png" style="width: 300px; height: 150px;">
-            <p>[오피셜]'기나긴 사가는 끝났다' 음바페, 레알...</p>
+                <img src="${root}/image/a1.png" style="width: 300px; height: 150px;">
+                <p>[오피셜]'기나긴 사가는 끝났다' 음바페, 레알...</p>
             </a>
         </div>
         <div class="news-card">
@@ -155,19 +180,19 @@
                 <p>'독일 국대에 백인이 더 많아야죠?' 시대 역행...</p>
             </a>
         </div>
-        <div class="news-card">
+        <div class="news-card" style="margin-top: 60px;">
             <a href="https://m.sports.naver.com/wfootball/article/436/0000087050">
                 <img src="${root}/image/a4.png" style="width: 300px; height: 150px;">
                 <p>'저도 토트넘에서 나가고 싶어요' 러브콜 덥썩...</p>
             </a>
         </div>
-        <div class="news-card">
+        <div class="news-card" style="margin-top: 60px;">
             <a href="https://m.sports.naver.com/wfootball/article/108/0003240234">
                 <img src="${root}/image/a5.png" style="width: 300px; height: 150px;">
                 <p>첼시 마레스카 선임→곧바로 폭풍영입 준비...</p>
             </a>
         </div>
-        <div class="news-card">
+        <div class="news-card" style="margin-top: 60px;">
             <a href="https://m.sports.naver.com/wfootball/article/109/0005090418">
                 <img src="${root}/image/a6.png" style="width: 300px; height: 150px;">
                 <p>"팀을 협박했다"...'뒷통수 논란' 日 가마다...</p>
@@ -175,24 +200,22 @@
         </div>
     </div>
 </div>
-<script>
-    let currentSlide = 0;
+<script type="text/javascript">
+    const images = document.querySelectorAll('.carousel img');
+    let currentIndex = 0;
 
-    function moveCarousel(direction) {
-        const carousel = document.getElementById('carouselExample');
-        const items = carousel.querySelectorAll('img');
-        const totalItems = items.length;
-        const itemsToShow = 4;
-        const maxSlide = totalItems - itemsToShow;
+    document.getElementById('next').addEventListener('click', () => {
+        images[currentIndex].classList.remove('active');
+        currentIndex = (currentIndex + 1) % images.length;
+        images[currentIndex].classList.add('active');
+    });
 
-        currentSlide += direction;
-        if (currentSlide < 0) currentSlide = 0;
-        if (currentSlide > maxSlide) currentSlide = maxSlide;
+    document.getElementById('prev').addEventListener('click', () => {
+        images[currentIndex].classList.remove('active');
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        images[currentIndex].classList.add('active');
+    });
 
-        const offset = currentSlide * (items[0].offsetWidth + 10); // image width + margin
-        carousel.style.transform = `translateX(-${offset}px)`;
-    }
 </script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
