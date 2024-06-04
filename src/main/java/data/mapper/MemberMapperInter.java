@@ -28,8 +28,8 @@ public interface MemberMapperInter {
     @Select("select * from login where num=#{num}")
     public MemberDto getData(int num);
 
-    @Select("select * from login where id=#{myid}")
-    public MemberDto getDataById(String myid);
+    @Select("select * from login where id=#{id}")
+    public MemberDto getDataById(String id);
 
     @Update("update login set profile=#{photo} where num=#{num}")
     public void updatePhoto(Map<String, Object> map);
