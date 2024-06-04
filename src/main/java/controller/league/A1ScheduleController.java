@@ -135,7 +135,8 @@ public class A1ScheduleController {
 
             if (entity != null) {
                 String result = EntityUtils.toString(entity);
-                List<Map<String, Object>> events = parseMatchEvents(result);
+                List<MatchEvent> events = parseMatchEvents(result);
+                System.out.println(events);
                 model.addAttribute("events", events);
             }
         } catch (IOException e) {
@@ -146,15 +147,23 @@ public class A1ScheduleController {
         return "schedule/event";
     }
 
-    private List<Map<String, Object>> parseMatchEvents(String result) throws IOException {
+
+    private List<MatchEvent> parseMatchEvents(String result) throws IOException {
+        List<MatchEvent> events = new ArrayList<>();
         ObjectMapper mapper = new ObjectMapper();
         JsonNode rootNode = mapper.readTree(result);
         JsonNode eventsNode = rootNode.path("response");
 
-        // 이벤트가 JSON 객체 형식으로 반환되는 것으로 가정합니다.
-        // 실제 API 응답 구조에 따라 파싱 로직을 조정해야 합니다.
-        List<Map<String, Object>> events = mapper.readValue(eventsNode.traverse(),
-                new TypeReference<List<Map<String, Object>>>() {});
+        for (JsonNode eventNode : eventsNode) {
+            int elapsed = eventNode.path("time").path("elapsed").asInt();
+            String type = eventNode.path("type").asText();
+            String detail = eventNode.path("detail").asText();
+            String teamName = eventNode.path("team").path("name").asText();
+            String playerName = eventNode.path("player").path("name").asText();
+
+            MatchEvent event = new MatchEvent(elapsed, type, detail, teamName, playerName);
+            events.add(event);
+        }
 
         return events;
     }
@@ -182,5 +191,14 @@ public class A1ScheduleController {
         private String status;
 
 
+    }
+    @AllArgsConstructor
+    @Data
+    public static class MatchEvent {
+        private int elapsed;
+        private String type;
+        private String detail;
+        private String teamName;
+        private String playerName;
     }
 }

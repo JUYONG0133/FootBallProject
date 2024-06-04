@@ -23,19 +23,19 @@ public class BoardDetailController {
 
         @GetMapping("/detail")
         public String detail(
-                @RequestParam int num,
+                @RequestParam int idx,
                 @RequestParam int currentPage,
                 Model model
         )
         {
             //조회수 증가
-            boardService.updateReadcount(num);
+            boardService.updateReadcount(idx);
             //num 에 해당하는 글 가져오기
-            BoardDto dto=boardService.getData(num);
+            BoardDto dto=boardService.getData(idx);
             //해당 아이디가 갖고 있는 프로필 사진 가져오기
-            //String profile_photo=memberService.getDataById(dto.getMyid()).getProfile();
+            String profile_photo=memberService.getDataById(dto.getMyid()).getProfile();
 
-           // model.addAttribute("profile_photo", profile_photo);
+            model.addAttribute("profile_photo", profile_photo);
             model.addAttribute("dto", dto);
             model.addAttribute("currentPage", currentPage);
 

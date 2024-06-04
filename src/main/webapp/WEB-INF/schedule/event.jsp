@@ -23,13 +23,15 @@
             <tr>
                 <th scope="col">시간</th>
                 <th scope="col">이벤트</th>
+                <th scope="col">설명</th>
             </tr>
             </thead>
             <tbody>
             <c:forEach var="event" items="${events}">
                 <tr>
-                    <td>${event.time}</td>
-                    <td>${event.type} - ${event.description}</td>
+                    <td>${event.time}분</td>
+                    <td>${event.type}</td>
+                    <td>${event.detail}</td>
                 </tr>
             </c:forEach>
             </tbody>
