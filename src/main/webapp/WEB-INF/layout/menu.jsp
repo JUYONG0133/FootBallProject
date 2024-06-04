@@ -104,15 +104,15 @@
                                 &nbsp;아이디저장
                             </label>
                         </caption>
-                        <tr>
-                            <th class="table-success" width="80">아이디</th>
+                        <tr align="center">
+                            <th class="table-success" width="80" style="background-color: #a0b4e5">아이디</th>
                             <td>
                                 <input type="text" name="myid" class="form-control" required="required"
                                        value="${sessionScope.saveid != null and sessionScope.saveid =='yes'?sessionScope.loginid:''}">
                             </td>
                         </tr>
-                        <tr>
-                            <th class="table-success" width="80">비밀번호</th>
+                        <tr align="center">
+                            <th class="table-success" width="80" style="background-color: #a0b4e5">비밀번호</th>
                             <td>
                                 <input type="password" name="pass" id="pass" class="form-control"
                                        required="required">
@@ -123,9 +123,9 @@
 
                 <!-- Modal footer -->
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-sm btn-danger" data-bs-dismiss="modal"
+                    <button type="submit" class="btn btn-sm btn-danger" data-bs-dismiss="modal" style="background-color: #a0b4e5; border: 0px solid black; height: 30px;"
                             id="btnmemberlogin">로그인</button>
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal" style="background-color: #a0b4e5; border: 0px solid black; height: 30px; line-height: 20px;"
                             id="btnclose">닫기</button>
                 </div>
             </form>
@@ -141,7 +141,7 @@
     <button type="button" onclick="location.href='${root}/rank/pl'">순위</button>
     <button type="button" onclick="location.href='${root}/board/list'">게시판</button>
         <c:if test="${sessionScope.loginok==null}">
-            <button type="button" id="btnlogin" data-bs-toggle="modal" data-bs-target="#myLoginModal">로그인</button>
+            <button type="button" id="btnlogin" data-bs-toggle="modal" data-bs-target="#myLoginModal" style=" margin-left: 200px;">로그인</button>
             <button type="button" onclick="location.href='${root}/login/form'">회원가입</button>
         </c:if>
         <c:if test="${sessionScope.loginok!=null}">
@@ -151,13 +151,10 @@
             <input type="hidden" value="${dto.num}">
             <!-- dto.num을 가져오기 위해 DTO 객체를 Model로부터 전달 -->
 <%--            <c:set var="num" value="${sessionScope.dto.num}" /> <!-- sessionScope에서 num 값을 가져옵니다 -->--%>
-            ㅇㄹㄴㅁㄹㄴㅁㄹㄴ=${dto.num}
             <a href="${root}/member/updateform?id=${sessionScope.loginid}">
-                <img src="${stpath}/${dto.profile}" style="border: 3px solid black; border-radius: 20px; margin-left: 250px;">
+                <b style="color: white; font-size: 20px; margin-left: 200px;">${sessionScope.loginid} 님</b>
             </a>
 
-
-            <b style="font-size: 20px;">${sessionScope.loginid}님</b>
             <button type="button" id="btnlogout" style="margin-left: 20px;">로그아웃</button>
         </c:if>
 
