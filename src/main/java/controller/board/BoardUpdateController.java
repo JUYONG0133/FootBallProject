@@ -30,14 +30,15 @@ public class BoardUpdateController {
 
     @GetMapping("/updateform")
     public String updateForm(
-            @RequestParam int num,
+            @RequestParam int idx,
             @RequestParam int currentPage,
             Model model
     )
     {
         model.addAttribute("currentPage", currentPage);
         //dto 얻기
-        BoardDto dto=boardService.getData(num);
+
+        BoardDto dto = boardService.getData(idx);
         model.addAttribute("dto", dto);
 
         return "board/updateform";
@@ -56,7 +57,7 @@ public class BoardUpdateController {
         //수정
         boardService.updateBoard(dto);
 
-        return "redirect:./detail?num="+dto.getNum()+"&currentPage="+currentPage;
+        return "redirect:./detail?idx="+dto.getIdx()+"&currentPage="+currentPage;
     }
 
 
