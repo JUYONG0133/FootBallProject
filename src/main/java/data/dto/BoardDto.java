@@ -24,5 +24,5 @@ public class BoardDto {
     private int readcount=0;
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm",timezone = "Asia/Seoul")
     private Timestamp writeday;
-
+    private int recount; //댓글의 개수
 }

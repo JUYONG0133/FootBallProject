@@ -42,7 +42,7 @@ public interface MemberMapperInter {
     public void deleteMember(int num);
 */
 
-    @Select("select count(*) from login where num=#{num} and pw=#{passwd}")
+    @Select("select count(*) from login where num=#{num} and pw=#{pw}")
     public int isEqualPassCheck(Map<String, Object> map);
 
     @Select("""

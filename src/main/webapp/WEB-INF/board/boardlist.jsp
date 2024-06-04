@@ -102,6 +102,9 @@
                         <c:if test="${dto.photo != 'no' && dto.photo != null}">
                             <i class="bi bi-image" style="color: gray;"></i>
                         </c:if>
+                                <c:if test="${dto.recount>0}">
+                                    <span style="color: red;">(${dto.recount})</span>
+                                </c:if>
                     </a>
                 </td>
                 <td>${dto.nickname}</td>
@@ -113,6 +116,9 @@
         </c:forEach>
         </tbody>
     </table>
+
+
+
     <nav aria-label="Page navigation">
         <ul class="pagination">
             <c:if test="${startPage > 1}">

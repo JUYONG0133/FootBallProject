@@ -65,11 +65,9 @@
         .form-group textarea {
             resize: vertical;
         }
-
         .urls .form-group {
             margin-bottom: 5px;
         }
-
         .save-btn {
             width: 100%;
             padding: 10px;
@@ -84,97 +82,99 @@
 
 </head>
 <script type="text/javascript">
-    $(function(){
-        $("#myfile").change(function(){
-            //console.log($(this)[0]);//type 이 file 인경우 배열타입으로 넘어온다
-            let reg=/(.*?)\/(jpg|jpeg|png|gif)$/;
-            let f=$(this)[0].files[0];
-            if(!f.type.match(reg)){
+    let jungbok = false;
+    $(function() {
+        $("#myfile").change(function() {
+            let reg = /(.*?)\/(jpg|jpeg|png|gif)$/;
+            let f = $(this)[0].files[0];
+            if (!f.type.match(reg)) {
                 alert("이미지 파일만 가능합니다");
                 return;
             }
-            if(f){
-                let reader=new FileReader();
-                reader.onload=function(e){
-                    $("#showimg").attr("src",e.target.result);
+            if (f) {
+                let reader = new FileReader();
+                reader.onload = function(e) {
+                    $("#showimg").attr("src", e.target.result);
                 }
-                reader.readAsDataURL($(this)[0].files[0]);
+                reader.readAsDataURL(f);
             }
         });
-        //중복버튼 이벤트
-        $("#btncheckid").click(function(){
-            if($("#myid").val()==''){
+
+        // 중복 버튼 이벤트
+        $("#btncheckid").click(function() {
+            if ($("#id").val() == '') {
                 alert("가입할 아이디를 입력해주세요");
                 return;
             }
 
             $.ajax({
-                type:"get",
-                dataType:"json",
-                url:"./idcheck",
-                data:{"searchid":$("#myid").val()},
-                success:function(data){
-                    if(data.count==0){
+                type: "get",
+                dataType: "json",
+                url: "/member/idcheck",
+                data: {"searchid": $("#id").val()},
+                success: function(data) {
+                    if (data.count == 0) {
                         alert("가입 가능한 아이디입니다");
-                        jungbok=true;
-                    }else{
+                        jungbok = true;
+                    } else {
                         alert("이미 가입되어있는 아이디입니다");
-                        jungbok=false;
-                        $("#myid").val("");
+                        jungbok = false;
+                        $("#id").val("");
                     }
+                },
+                error: function(xhr, status, error) {
+                    alert("서버와의 통신에 문제가 발생했습니다: " + error);
+                    jungbok = false;
                 }
             });
         });
 
-        //아이디를 입력시 다시 중복확인을 누르도록 중복변수를 초기화
-        $("#myid").keyup(function(){
-            jungbok=false;
+        // 아이디를 입력시 다시 중복확인을 누르도록 중복변수를 초기화
+        $("#id").keyup(function() {
+            jungbok = false;
         });
-    });  //close function
+    });
 
-
-    function check()
-    {
-        if(!jungbok){
+    function check() {
+        if (!jungbok) {
             alert("아이디 중복확인을 해주세요");
-            return false;//false반환시 action 실행을 안함
+            return false; // false 반환 시 action 실행을 안함
         }
     }
-
 </script>
 <body>
 <div class="container">
     <h1>회원가입</h1>
-    <form action="./insert" method="post" enctype="multipart/form-data">
-    <div class="profile-section">
-        <img src="https://via.placeholder.com/50" alt="Profile Image" id="showimg">
-        <div>
-            <input type="file" id="myfile" name="myfile">
+    <form action="./insert" method="post" enctype="multipart/form-data" onsubmit="return check()">
+        <div class="profile-section">
+            <img src="https://via.placeholder.com/50" alt="Profile Image" id="showimg">
+            <div>
+                <input type="file" id="myfile" name="myfile">
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        <label>이름</label>
-        <input type="text" id="username" name="name"placeholder="이름을 입력하세요" required>
-    </div>
-    <div class="form-group">
-        <label>아이디</label>
-        <input type="text" name="id" placeholder="아이디를 입력하세요" required>
-        <button type="button" class="btn btn-sm btn-danger" id="btncheckid">중복확인</button>
-    </div>
-    <div class="form-group">
-    <label>비밀번호</label>
-    <input type="password" name="pw" placeholder="8글자이내로 입력하세요" maxlength="8" required>
-    </div>
-    <div class="form-group">
-        <label>닉네임</label>
-        <input type="text" name="nickname" placeholder="닉네임을 입력하세요" required>
-    </div>
-    <div class="form-group">
-        <label>이메일</label>
-        <input type="email" name="email" placeholder="이메일을 입력하세요" required>
-    </div>
-    <button class="save-btn" type="submit">회원가입</button>
-</form>
+        <div class="form-group">
+            <label>이름</label>
+            <input type="text" id="username" name="name" placeholder="이름을 입력하세요" required>
+        </div>
+        <div class="form-group">
+            <label>아이디</label>
+            <input type="text" name="id" id="id" placeholder="아이디를 입력하세요" required>
+            <button type="button" class="btn btn-sm btn-danger" id="btncheckid">중복확인</button>
+        </div>
+        <div class="form-group">
+            <label>비밀번호</label>
+            <input type="password" name="pw" placeholder="8글자이내로 입력하세요" maxlength="8" required>
+        </div>
+        <div class="form-group">
+            <label>닉네임</label>
+            <input type="text" name="nickname" placeholder="닉네임을 입력하세요" required>
+        </div>
+        <div class="form-group">
+            <label>이메일</label>
+            <input type="email" name="email" placeholder="이메일을 입력하세요" required>
+        </div>
+        <button class="save-btn" type="submit">회원가입</button>
+    </form>
 </div>
 </body>
 </html>

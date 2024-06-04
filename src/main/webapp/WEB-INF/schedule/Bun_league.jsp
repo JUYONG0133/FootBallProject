@@ -31,7 +31,7 @@
         <button type="button" class="btn btn-sm btn-secondary me-2" onclick="location.href='/schedule/LL?month=5'">라리가</button>
     </h1>
 
-    <form method="get" action="${pageContext.request.contextPath}/test/bun" class="mb-4">
+    <form method="get" action="${pageContext.request.contextPath}/schedule/bun" class="mb-4">
         <div class="input-group">
             <label class="input-group-text" for="monthSelect">월 선택</label>
             <select class="form-select" id="monthSelect" name="month">

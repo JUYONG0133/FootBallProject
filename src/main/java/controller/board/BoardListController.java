@@ -1,6 +1,7 @@
 package controller.board;
 
 import data.dto.BoardDto;
+import data.service.BoardAnswerService;
 import data.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,6 +15,8 @@ import java.util.List;
 public class BoardListController {
     @Autowired
     private BoardService boardService;
+    @Autowired
+    private BoardAnswerService answerService;
 
     @GetMapping("/board/list")
     public String list(
@@ -33,6 +36,9 @@ public class BoardListController {
 
         // 목록 가져오기
         List<BoardDto> list = boardService.getPagingList(start, perPage);
+        for(BoardDto dto : list){
+            dto.setRecount(answerService.getAnswerData(dto.getIdx()).size());
+        }
 
         // Model에 필요한 데이터 저장
         model.addAttribute("totalCount", totalCount);
