@@ -15,7 +15,7 @@
             font-family: 'Jua';
         }
         .chat-box {
-            width: 200px;
+            width: 300px;
             border: 1px solid #ddd;
             padding: 10px;
             background-color: white;
@@ -29,6 +29,9 @@
 </head>
 <body>
 <div class="chat-box">
+    <div class="message">
+        <br><br><br><br><br>
+    </div>
     <div class="message">
         <strong>Helena Hunt</strong>
         <p>Active 20m ago</p>
