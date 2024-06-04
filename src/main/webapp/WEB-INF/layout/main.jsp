@@ -83,7 +83,7 @@
 <div class="container">
     <div class="top-section">
         <div class="carousel-wrapper" style="margin-left: 20px;">
-            <b>이슈 Pick</b>
+            <b style="color: blue;">해외축구  이슈 Pick</b>
             <div id="carouselExample" class="carousel" style="margin-top: 100px;">
                 <img src="https://via.placeholder.com/100" alt="Pick 1">
                 <img src="https://via.placeholder.com/100" alt="Pick 2">
@@ -102,8 +102,8 @@
         <div class="news-table" style="margin-left: 130px;">
             <table class="table">
                 <thead>
-                <tr style="height: 50px; background-color: gray;">
-                    <th><b>이 시각 많이 본 뉴스</b><a href="https://sports.news.naver.com/wfootball/news/index?isphoto=N&type=popular"><b style="margin-left: 300px;">더보기</b></a></th>
+                <tr style="height: 30px;">
+                    <th style="background-color: #b7b7b7;"><b>이 시각 많이 본 뉴스</b><a href="https://sports.news.naver.com/wfootball/news/index?isphoto=N&type=popular"><b style="margin-left: 300px;">더보기</b></a></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -128,6 +128,9 @@
                 <tr>
                     <td><a href="https://m.sports.naver.com/wfootball/article/076/0004152391">[오피셜]'기나긴 사가는 끝났다' 음바페, 레알 마드리드행 확정 '계약기간...</a></td>
                 </tr>
+                <tr>
+                    <td><a href="https://m.sports.naver.com/wfootball/article/139/0002203717">‘맨유 배신→첼시로 이적’ 희대의 통수왕, 퍼거슨과 20년 만에 재회...</a></td>
+                </tr>
                 </tbody>
             </table>
         </div>
@@ -137,42 +140,36 @@
         <div class="news-card">
             <a href="https://m.sports.naver.com/wfootball/article/076/0004152391">
             <img src="${root}/image/a1.png" style="width: 300px; height: 150px;">
-            <h3>Title</h3>
             <p>[오피셜]'기나긴 사가는 끝났다' 음바페, 레알...</p>
             </a>
         </div>
         <div class="news-card">
             <a href="https://m.sports.naver.com/wfootball/article/411/0000046955">
                 <img src="${root}/image/a2.png" style="width: 300px; height: 150px;">
-                <h3>Title</h3>
                 <p>안토니보다 더 심각하다...'7경기 0골' FW 올...</p>
             </a>
         </div>
         <div class="news-card">
             <a href="https://m.sports.naver.com/wfootball/article/436/0000087049">
                 <img src="${root}/image/a3.png" style="width: 300px; height: 150px;">
-                <h3>Title</h3>
                 <p>'독일 국대에 백인이 더 많아야죠?' 시대 역행...</p>
             </a>
         </div>
         <div class="news-card">
             <a href="https://m.sports.naver.com/wfootball/article/436/0000087050">
                 <img src="${root}/image/a4.png" style="width: 300px; height: 150px;">
-                <h3>Title</h3>
                 <p>'저도 토트넘에서 나가고 싶어요' 러브콜 덥썩...</p>
             </a>
         </div>
         <div class="news-card">
             <a href="https://m.sports.naver.com/wfootball/article/108/0003240234">
                 <img src="${root}/image/a5.png" style="width: 300px; height: 150px;">
-                <h3>Title</h3>
                 <p>첼시 마레스카 선임→곧바로 폭풍영입 준비...</p>
             </a>
         </div>
         <div class="news-card">
             <a href="https://m.sports.naver.com/wfootball/article/109/0005090418">
                 <img src="${root}/image/a6.png" style="width: 300px; height: 150px;">
-                <h3>Title</h3>
                 <p>"팀을 협박했다"...'뒷통수 논란' 日 가마다...</p>
             </a>
         </div>

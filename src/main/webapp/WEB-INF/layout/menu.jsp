@@ -146,8 +146,9 @@
         </c:if>
         <c:if test="${sessionScope.loginok!=null}">
             <c:set var="stpath" value="https://kr.object.ncloudstorage.com/bitcamp-bh-98/football"/>
-            <img src="${stpath}/${myfile}" style="border: 3px solid black; border-radius: 20px; margin-left: 250px;"
-                 onclick="location.href='${root}/member/updateform?num=${sessionScope.num}'">
+
+            <img src="${stpath}/${dto.profile}" style="border: 3px solid black; border-radius: 20px; margin-left: 250px;"
+                 onclick="location.href='${root}/member/updateform?num=${s.num}'">
             <b style="font-size: 20px;">${sessionScope.loginid}님</b>
             <button type="button" id="btnlogout" style="margin-left: 20px;">로그아웃</button>
         </c:if>

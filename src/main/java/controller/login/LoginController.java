@@ -1,14 +1,17 @@
 package controller.login;
 
+import data.dto.MemberDto;
 import data.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -36,15 +39,18 @@ public class LoginController {
             session.setAttribute("saveid", saveid.equals("no")?"no":"yes");
             session.setAttribute("loginok", "yes");
             session.setAttribute("loginid", myid);
+
         }
         else {
             //아이디와 비번이 틀린경우
             map.put("status","fail");
 
         }
-
         return map;
     }
+
+
+
 
     //로그아웃시 호출
     @ResponseBody
