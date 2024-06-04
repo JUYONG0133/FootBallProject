@@ -71,4 +71,9 @@ public class MemberService {
     public boolean isLoginCheck(String myid, String pass) {
         return memInter.isLoginCheck(myid, pass) == 1 ? true : false;
     }
+
+
+    public int getNum(String id){
+        return memInter.getNum(id);
+    }
 }

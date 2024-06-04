@@ -147,11 +147,20 @@
         <c:if test="${sessionScope.loginok!=null}">
             <c:set var="stpath" value="https://kr.object.ncloudstorage.com/bitcamp-bh-98/football"/>
 
-            <img src="${stpath}/${dto.profile}" style="border: 3px solid black; border-radius: 20px; margin-left: 250px;"
-                 onclick="location.href='${root}/member/updateform?num=${s.num}'">
+
+            <input type="hidden" value="${dto.num}">
+            <!-- dto.num을 가져오기 위해 DTO 객체를 Model로부터 전달 -->
+<%--            <c:set var="num" value="${sessionScope.dto.num}" /> <!-- sessionScope에서 num 값을 가져옵니다 -->--%>
+            ㅇㄹㄴㅁㄹㄴㅁㄹㄴ=${dto.num}
+            <a href="${root}/member/updateform?id=${sessionScope.loginid}">
+                <img src="${stpath}/${dto.profile}" style="border: 3px solid black; border-radius: 20px; margin-left: 250px;">
+            </a>
+
+
             <b style="font-size: 20px;">${sessionScope.loginid}님</b>
             <button type="button" id="btnlogout" style="margin-left: 20px;">로그아웃</button>
         </c:if>
+
 
 
     </div>

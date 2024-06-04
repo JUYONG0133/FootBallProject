@@ -1,5 +1,6 @@
 package controller.login;
 
+import data.dto.BoardDto;
 import data.dto.MemberDto;
 import data.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,8 +25,10 @@ public class LoginController {
     @GetMapping("/member/login")
     public Map<String, String> isLogin(
             @RequestParam(defaultValue = "no") String saveid,   //널값이 넘어올 경우 디폴트값이 적용된다
+
             @RequestParam String myid,
             @RequestParam String pass,
+
             HttpSession session
     )
     {
@@ -46,6 +49,8 @@ public class LoginController {
             map.put("status","fail");
 
         }
+
+
         return map;
     }
 

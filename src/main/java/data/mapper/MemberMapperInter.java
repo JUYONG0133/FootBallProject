@@ -50,6 +50,7 @@ public interface MemberMapperInter {
             """)
     public int isLoginCheck(String myid, String pass);
 
-
+    @Select("select num from login where id = #{id}")
+    public int getNum(String id);
 
 }
