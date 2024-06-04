@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import data.dto.BoardDto;
+import data.dto.GuestPhotoDto;
 import data.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,6 +19,8 @@ import org.springframework.web.multipart.MultipartFile;
 import data.service.MemberService;
 
 import naver.cloud.NcpObjectStorageService;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("/board")
@@ -65,6 +68,10 @@ public class BoardWriteController {
 
     {
 
+
+
+
+
         String photo=storageService.uploadFile(bucketName, folderName, upload);
         dto.setPhoto(photo);
 
@@ -75,14 +82,12 @@ public class BoardWriteController {
         //member db 로부터 아이디에 해당하는 이름을 얻어서 dto 에 저장
         String writer=memberService.getDataById(loginid).getName();
         dto.setNickname(writer);
-//        dto.setReadcount(0);
 
         //db insert
         boardService.insertBoard(dto);
 
         //확인할거...추가후 저장된 시퀀스값
-        System.out.println("num="+dto.getIdx());
-
+        System.out.println("num="+dto.getNum());
         //return "redirect:./list?currentPage="+currentPage;
 
         //추가후 상세페이지로 이동

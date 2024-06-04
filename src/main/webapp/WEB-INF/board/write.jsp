@@ -61,25 +61,26 @@
     </table>
 </form>
 
-<script>
-    $(function () {
-        $("#upload").change(function () {
-            const file = this.files[0];
-            const validImageTypes = ['image/jpg', 'image/jpeg', 'image/png', 'image/gif'];
-
-            if (!validImageTypes.includes(file.type)) {
-                alert("이미지 파일만 가능합니다.");
-                return;
-            }
-
-            const reader = new FileReader();
-            reader.onload = function (e) {
-                $("#showimg1").attr("src", e.target.result);
-            }
-            reader.readAsDataURL(file);
+    <script>
+        $(function () {
+            $("#upload").change(function () {
+                //console.log($(this));
+                let reg = /(.*?)\/(jpg|jpeg|png|gif)$/;
+                let f = $(this)[0].files[0];
+                if (!f.type.match(reg)) {
+                    alert("이미지 파일만 가능합니다.");
+                    return;
+                }
+                if ($(this)[0].files[0]) {
+                    let reader = new FileReader();
+                    reader.onload = function (e) {
+                        $("#showimg1").attr("src", e.target.result);
+                    }
+                    reader.readAsDataURL($(this)[0].files[0]);
+                }
+            });
         });
-    });
-</script>
+    </script>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>

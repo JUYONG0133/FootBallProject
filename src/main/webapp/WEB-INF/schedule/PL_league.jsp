@@ -32,7 +32,7 @@
 
     </h1>
 
-    <form method="get" action="${pageContext.request.contextPath}/test/pl" class="mb-4">
+    <form method="get" action="${pageContext.request.contextPath}/schedule/pl" class="mb-4">
         <div class="input-group">
             <label class="input-group-text" for="monthSelect">월 선택</label>
             <select class="form-select" id="monthSelect" name="month">

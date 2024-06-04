@@ -54,10 +54,10 @@ public class MemberService {
         memInter.updateMember(dto);
     }
 
-    public boolean isEqualPassCheck(int num, String passwd) {
+    public boolean isEqualPassCheck(int num, String pw) {
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("num", num);
-        map.put("pw", passwd);
+        map.put("pw", pw);
         int n = memInter.isEqualPassCheck(map);
         return n == 1 ? true : false;
     }
@@ -68,8 +68,8 @@ public class MemberService {
 //    }
 //*/
 
-    public boolean isLoginCheck(String myid, String pass) {
-        return memInter.isLoginCheck(myid, pass) == 1 ? true : false;
+    public boolean isLoginCheck(String id, String pw) {
+        return memInter.isLoginCheck(id, pw) == 1 ? true : false;
     }
 
 

@@ -69,8 +69,9 @@
         }
     </style>
 </head>
+
 <%
-    String filePath = "/Users/ibyeonghyeon/Desktop/naver0314/FootBallProject/src/main/resources/static/image/transfermakt25.json";
+    String filePath = "src/main/resources/static/image/transfermakt25.json";
     StringBuilder jsonData = new StringBuilder();
 
     try (FileReader fileReader = new FileReader(filePath);

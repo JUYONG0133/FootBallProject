@@ -26,8 +26,9 @@
         }
 
         pre.adata{
-            margin-left: 10px;
-            color: gray;
+            margin-top: 20px;
+            margin-right: 230px;
+            color: black;
         }
 
         span.aday{
