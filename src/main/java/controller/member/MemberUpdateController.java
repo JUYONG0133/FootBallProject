@@ -75,9 +75,10 @@ public class MemberUpdateController {
     @PostMapping("/update")
     public String update(@ModelAttribute MemberDto dto)
     {
+
         //수정
         memberService.updateMember(dto);
-        return "redirect:./detail?num="+dto.getNum();
+        return "redirect:./updateform?num="+dto.getNum();
     }
 
     //{"status":"success" or "fail"}
