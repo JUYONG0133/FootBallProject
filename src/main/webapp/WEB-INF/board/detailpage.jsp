@@ -100,7 +100,7 @@
                         s+=
                             `
 					  \${ele.nickname}(\${ele.myid})
-					  <span class="aday">\${ele.nickname}</span>
+					  <span class="aday">\${ele.writeday}</span>
 					  `;
                         //로그인중이면서 댓글 아이디와 로그인 아이디가 같을경우 삭제 아이콘 추가
                         if(loginok=='yes' && loginid==ele.myid){
