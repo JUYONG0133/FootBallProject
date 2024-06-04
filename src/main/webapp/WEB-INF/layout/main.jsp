@@ -45,6 +45,7 @@
             margin-left: 20px;
             flex: 1;
         }
+
         .news-grid {
             display: flex;
             flex-wrap: wrap;
@@ -55,7 +56,7 @@
             border-radius: 5px;
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
             overflow: hidden;
-            margin-left: 30px;
+            margin-left: 50px;
         }
         .news-card img {
             width: 100%;
@@ -81,8 +82,9 @@
 <body>
 <div class="container">
     <div class="top-section">
-        <div class="carousel-wrapper">
-            <div id="carouselExample" class="carousel">
+        <div class="carousel-wrapper" style="margin-left: 20px;">
+            <b>이슈 Pick</b>
+            <div id="carouselExample" class="carousel" style="margin-top: 100px;">
                 <img src="https://via.placeholder.com/100" alt="Pick 1">
                 <img src="https://via.placeholder.com/100" alt="Pick 2">
                 <img src="https://via.placeholder.com/100" alt="Pick 3">
@@ -97,69 +99,82 @@
                 <button class="btn btn-light" onclick="moveCarousel(1)"><i class="bi bi-chevron-right"></i></button>
             </div>
         </div>
-        <div class="news-table" style="margin-left: 150px;">
+        <div class="news-table" style="margin-left: 130px;">
             <table class="table">
                 <thead>
-                <tr>
-                    <th><b>이 시각 많이 본 뉴스</b><b style="margin-left: 300px;">더보기</b></th>
+                <tr style="height: 50px; background-color: gray;">
+                    <th><b>이 시각 많이 본 뉴스</b><a href="https://sports.news.naver.com/wfootball/news/index?isphoto=N&type=popular"><b style="margin-left: 300px;">더보기</b></a></th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
-                    <td><a href="https://m.sports.naver.com/wfootball/article/117/0003837774">[오피셜] '2400억 FA 이적 완료' 레알, 음바페 영입 공식 발표...'5년 계약+No.9'→'갈락티코 3기' 스타트</a></td>
+                    <td><a href="https://m.sports.naver.com/wfootball/article/117/0003837774">[오피셜] '2400억 FA 이적 완료' 레알, 음바페 영입 공식 발표...'5년 계약...</a></td>
                 </tr>
                 <tr>
-                    <td><a href="https://m.sports.naver.com/wfootball/article/117/0003837759">"충격 대반전! 뮌헨 CB 판 뒤집혔다"…김민재 아니라 '데 리흐트+우파메카노'가 방출 후보, "타 구두 합의, 둘 중 한 명은 반드시 나가야 한다"</a></td>
+                    <td><a href="https://m.sports.naver.com/wfootball/article/117/0003837759">"충격 대반전! 뮌헨 CB 판 뒤집혔다"…김민재 아니라 '데 리흐트+우파메카노...</a></td>
                 </tr>
                 <tr>
-                    <td><a href="https://m.sports.naver.com/wfootball/article/411/0000046947">손흥민 동료, 휴가 도중 강도에 피습 사고...얼굴에 최루탄 습격+4억 5천짜리 시계 도난</a></td>
+                    <td><a href="https://m.sports.naver.com/wfootball/article/411/0000046947">손흥민 동료, 휴가 도중 강도에 피습 사고...얼굴에 최루탄 습격+4억 5천짜리...</a></td>
                 </tr>
                 <tr>
-                    <td><a href="https://m.sports.naver.com/wfootball/article/139/0002203719">‘갑작스러운 배신→첼시 이적’... 레스터 시티, 마레스카 감독 저격 “그의 결정에 매우 실망했다”</a></td>
+                    <td><a href="https://m.sports.naver.com/wfootball/article/139/0002203719">‘갑작스러운 배신→첼시 이적’... 레스터 시티, 마레스카 감독 저격 “그의 결정에...</a></td>
                 </tr>
                 <tr>
-                    <td><a href="https://m.sports.naver.com/wfootball/article/076/0004152364">'너무 잔혹한 구단!' 토트넘, '리빙 레전드' 손흥민과 재계약 대신 홀대한 충격 이유?..."재계약 협상에 유리하잖아"</a></td>
+                    <td><a href="https://m.sports.naver.com/wfootball/article/076/0004152364">'너무 잔혹한 구단!' 토트넘, '리빙 레전드' 손흥민과 재계약 대신 홀대한 충격...</a></td>
                 </tr>
                 <tr>
-                    <td><a href="https://m.sports.naver.com/wfootball/article/109/0005090401">음바페, 염원의 레알 입단...갈락티코 4기 ING -> 벨링엄+음바페 한솥밥 [공식발표]</a></td>
+                    <td><a href="https://m.sports.naver.com/wfootball/article/109/0005090401">음바페, 염원의 레알 입단...갈락티코 4기 ING -> 벨링엄+음바페 한솥밥...</a></td>
                 </tr>
                 <tr>
-                    <td><a href="https://m.sports.naver.com/wfootball/article/076/0004152391">[오피셜]'기나긴 사가는 끝났다' 음바페, 레알 마드리드행 확정 '계약기간 5년'→갈락티코 4기 완성</a></td>
+                    <td><a href="https://m.sports.naver.com/wfootball/article/076/0004152391">[오피셜]'기나긴 사가는 끝났다' 음바페, 레알 마드리드행 확정 '계약기간...</a></td>
                 </tr>
                 </tbody>
             </table>
         </div>
     </div>
-    <div class="news-grid">
+    <c:set var="root" value="<%=request.getContextPath()%>"/>
+    <div class="news-grid" style="margin-top: 100px;">
         <div class="news-card">
-            <img src="../image/a1.png" style="width: 300px; height: 150px;">
+            <a href="https://m.sports.naver.com/wfootball/article/076/0004152391">
+            <img src="${root}/image/a1.png" style="width: 300px; height: 150px;">
             <h3>Title</h3>
-            <p>Description</p>
+            <p>[오피셜]'기나긴 사가는 끝났다' 음바페, 레알...</p>
+            </a>
         </div>
         <div class="news-card">
-            <img src="../image/a2.png" style="width: 300px; height: 150px;">
-            <h3>Title</h3>
-            <p>Description</p>
+            <a href="https://m.sports.naver.com/wfootball/article/411/0000046955">
+                <img src="${root}/image/a2.png" style="width: 300px; height: 150px;">
+                <h3>Title</h3>
+                <p>안토니보다 더 심각하다...'7경기 0골' FW 올...</p>
+            </a>
         </div>
         <div class="news-card">
-            <img src="../image/a3.png" style="width: 300px; height: 150px;">
-            <h3>Title</h3>
-            <p>Description</p>
+            <a href="https://m.sports.naver.com/wfootball/article/436/0000087049">
+                <img src="${root}/image/a3.png" style="width: 300px; height: 150px;">
+                <h3>Title</h3>
+                <p>'독일 국대에 백인이 더 많아야죠?' 시대 역행...</p>
+            </a>
         </div>
         <div class="news-card">
-            <img src="../image/a4.png" style="width: 300px; height: 150px;">
-            <h3>Title</h3>
-            <p>Description</p>
+            <a href="https://m.sports.naver.com/wfootball/article/436/0000087050">
+                <img src="${root}/image/a4.png" style="width: 300px; height: 150px;">
+                <h3>Title</h3>
+                <p>'저도 토트넘에서 나가고 싶어요' 러브콜 덥썩...</p>
+            </a>
         </div>
         <div class="news-card">
-            <img src="../image/a5.png" style="width: 300px; height: 150px;">
-            <h3>Title</h3>
-            <p>Description</p>
+            <a href="https://m.sports.naver.com/wfootball/article/108/0003240234">
+                <img src="${root}/image/a5.png" style="width: 300px; height: 150px;">
+                <h3>Title</h3>
+                <p>첼시 마레스카 선임→곧바로 폭풍영입 준비...</p>
+            </a>
         </div>
         <div class="news-card">
-            <img src="../image/a6.png" style="width: 300px; height: 150px;">
-            <h3>Title</h3>
-            <p>Description</p>
+            <a href="https://m.sports.naver.com/wfootball/article/109/0005090418">
+                <img src="${root}/image/a6.png" style="width: 300px; height: 150px;">
+                <h3>Title</h3>
+                <p>"팀을 협박했다"...'뒷통수 논란' 日 가마다...</p>
+            </a>
         </div>
     </div>
 </div>

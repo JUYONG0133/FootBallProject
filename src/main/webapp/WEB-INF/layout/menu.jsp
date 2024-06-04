@@ -145,7 +145,8 @@
             <button type="button" onclick="location.href='${root}/login/form'">회원가입</button>
         </c:if>
         <c:if test="${sessionScope.loginok!=null}">
-            <img src="../aa.jpg" style="border: 3px solid black; border-radius: 20px; margin-left: 250px;"
+            <c:set var="stpath" value="https://kr.object.ncloudstorage.com/bitcamp-bh-98/football"/>
+            <img src="${stpath}/${myfile}" style="border: 3px solid black; border-radius: 20px; margin-left: 250px;"
                  onclick="location.href='${root}/member/updateform?num=${sessionScope.num}'">
             <b style="font-size: 20px;">${sessionScope.loginid}님</b>
             <button type="button" id="btnlogout" style="margin-left: 20px;">로그아웃</button>
