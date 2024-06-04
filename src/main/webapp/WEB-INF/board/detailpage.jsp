@@ -54,7 +54,7 @@
                     type:'post',
                     dataType:'text',
                     url:"./ainsert",
-                    data:{"num":num,"content":content},
+                    data:{"idx":idx,"content":content},
                     success:function(){
                         //댓글 목록 다시 출력
                         answer_list();
