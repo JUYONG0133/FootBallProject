@@ -20,6 +20,7 @@
             max-width: 1200px;
             margin: auto;
             padding: 20px;
+            margin-left: 140px;
         }
         .top-section {
             display: flex;
@@ -30,7 +31,6 @@
             width: 500px;
             overflow: hidden;
             position: relative;
-            margin-top: 50px;
         }
         .carousel {
             display: flex;
@@ -44,37 +44,58 @@
             margin: 0 5px;
         }
         .carousel-title {
-            position: absolute;
-            top: -30px;
-            left: 50%;
-            transform: translateX(-50%);
-            color: blue;
+            text-align: center;
+            margin-bottom: 10px;
             font-weight: bold;
+            color: blue;
         }
         .news-table {
-            margin-left: 20px;
             flex: 1;
         }
+        .news-table table {
+            width: 100%;
+            margin-top: 50px;
+            border-collapse: collapse;
+            background-color: white;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+        .news-table th, .news-table td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        .news-table th {
+            background-color: #a0b4e5;
+            color: white;
+        }
+        .news-table a {
+            text-decoration: none;
+            color: #000;
+        }
+        .news-table a:hover {
+            text-decoration: underline;
+        }
         .news-grid {
+            width: 1000px;
             display: flex;
             flex-wrap: wrap;
-            gap: 20px;
+            gap: 80px;
+            margin-top: 100px;
+            margin-left: 100px;
         }
         .news-card {
             background-color: white;
             border-radius: 5px;
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
             overflow: hidden;
-            margin-left: 50px;
+            width: calc(33.333% - 80px);
         }
         .news-card img {
             width: 100%;
             height: 150px;
             object-fit: cover;
-        }
-        .news-card h3 {
-            font-size: 1.2em;
-            margin: 10px;
         }
         .news-card p {
             margin: 10px;
@@ -91,7 +112,7 @@
 <body>
 <div class="container">
     <div class="top-section">
-        <div class="carousel-wrapper" style="margin-left: 20px;">
+        <div class="carousel-wrapper" style="margin-top: 40px;">
             <div class="carousel-title">해외축구 이슈 Pick</div>
             <div id="carouselExample" class="carousel">
                 <a href="https://m.sports.naver.com/wfootball/article/477/0000494019">
@@ -124,44 +145,44 @@
                 <button class="btn btn-light" id="next" style="background-color: #b6d2fc;"><i class="bi bi-chevron-right"></i></button>
             </div>
         </div>
-        <div class="news-table" style="margin-left: 130px;">
+        <div class="news-table" style="margin-left: 100px;">
             <table class="table">
                 <thead>
-                <tr style="height: 30px;">
-                    <th style="background-color: #a0b4e5;"><b>이 시각 많이 본 뉴스</b><a href="https://sports.news.naver.com/wfootball/news/index?isphoto=N&type=popular"><b style="margin-left: 300px; font-size: 12px;">더보기</b></a></th>
+                <tr>
+                    <th>이 시각 많이 본 뉴스<a href="https://sports.news.naver.com/wfootball/news/index?isphoto=N&type=popular" style="float: right; font-size: 12px; color: white;">더보기</a></th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
-                    <td><a href="https://m.sports.naver.com/wfootball/article/117/0003837774"><li>[오피셜] '2400억 FA 이적 완료' 레알, 음바페 영입 공식 발표...'5년 계약...</li></a></td>
+                    <td><a href="https://m.sports.naver.com/wfootball/article/117/0003837774">[오피셜] '2400억 FA 이적 완료' 레알, 음바페 영입 공식 발표...'5년 계약...</a></td>
                 </tr>
                 <tr>
-                    <td><a href="https://m.sports.naver.com/wfootball/article/117/0003837759"><li>"충격 대반전! 뮌헨 CB 판 뒤집혔다"…김민재 아니라 '데 리흐트+우파메카노...</li></a></td>
+                    <td><a href="https://m.sports.naver.com/wfootball/article/117/0003837759">"충격 대반전! 뮌헨 CB 판 뒤집혔다"…김민재 아니라 '데 리흐트+우파메카노...</a></td>
                 </tr>
                 <tr>
-                    <td><a href="https://m.sports.naver.com/wfootball/article/411/0000046947"><li>손흥민 동료, 휴가 도중 강도에 피습 사고...얼굴에 최루탄 습격+4억 5천짜리...</li></a></td>
+                    <td><a href="https://m.sports.naver.com/wfootball/article/411/0000046947">손흥민 동료, 휴가 도중 강도에 피습 사고...얼굴에 최루탄 습격+4억 5천짜리...</a></td>
                 </tr>
                 <tr>
-                    <td><a href="https://m.sports.naver.com/wfootball/article/139/0002203719"><li>‘갑작스러운 배신→첼시 이적’... 레스터 시티, 마레스카 감독 저격 “그의 결정에...</li></a></td>
+                    <td><a href="https://m.sports.naver.com/wfootball/article/139/0002203719">‘갑작스러운 배신→첼시 이적’... 레스터 시티, 마레스카 감독 저격 “그의 결정에...</a></td>
                 </tr>
                 <tr>
-                    <td><a href="https://m.sports.naver.com/wfootball/article/076/0004152364"><li>'너무 잔혹한 구단!' 토트넘, '리빙 레전드' 손흥민과 재계약 대신 홀대한 충격...</li></a></td>
+                    <td><a href="https://m.sports.naver.com/wfootball/article/076/0004152364">'너무 잔혹한 구단!' 토트넘, '리빙 레전드' 손흥민과 재계약 대신 홀대한 충격...</a></td>
                 </tr>
                 <tr>
-                    <td><a href="https://m.sports.naver.com/wfootball/article/109/0005090401"><li>음바페, 염원의 레알 입단...갈락티코 4기 ING -> 벨링엄+음바페 한솥밥...</li></a></td>
+                    <td><a href="https://m.sports.naver.com/wfootball/article/109/0005090401">음바페, 염원의 레알 입단...갈락티코 4기 ING -> 벨링엄+음바페 한솥밥...</a></td>
                 </tr>
                 <tr>
-                    <td><a href="https://m.sports.naver.com/wfootball/article/076/0004152391"><li>[오피셜]'기나긴 사가는 끝났다' 음바페, 레알 마드리드행 확정 '계약기간...</li></a></td>
+                    <td><a href="https://m.sports.naver.com/wfootball/article/076/0004152391">[오피셜]'기나긴 사가는 끝났다' 음바페, 레알 마드리드행 확정 '계약기간...</a></td>
                 </tr>
                 <tr>
-                    <td><a href="https://m.sports.naver.com/wfootball/article/139/0002203717"><li>‘맨유 배신→첼시로 이적’ 희대의 통수왕, 퍼거슨과 20년 만에 재회...</li></a></td>
+                    <td><a href="https://m.sports.naver.com/wfootball/article/139/0002203717">‘맨유 배신→첼시로 이적’ 희대의 통수왕, 퍼거슨과 20년 만에 재회...</a></td>
                 </tr>
                 </tbody>
             </table>
         </div>
     </div>
     <c:set var="root" value="<%=request.getContextPath()%>"/>
-    <div class="news-grid" style="margin-top: 100px;">
+    <div class="news-grid">
         <div class="news-card">
             <a href="https://m.sports.naver.com/wfootball/article/076/0004152391">
                 <img src="${root}/image/a1.png" style="width: 300px; height: 150px;">

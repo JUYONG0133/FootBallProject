@@ -2,6 +2,6 @@ package data.dto;
 
 public class ChatDto {
 
-    public ChatDto(int id, String writer, String body) {
+    public ChatDto(long id, String writer, String body) {
     }
 }

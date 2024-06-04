@@ -1,5 +1,5 @@
 
-package com.example.demo.controller;
+package controller.Chat;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -10,11 +10,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.example.demo.dto.ChatMessageDto;
+import data.dto.ChatDto;
 
 @Controller
 public class ChatController {
-    private List<ChatMessageDto> messages;
+    private List<ChatDto> messages;
 
     ChatController() {
         messages = new ArrayList<>();
@@ -30,7 +30,7 @@ public class ChatController {
     public Map addMessage(String writer, String body) {
 
         long id = messages.size();
-        ChatMessageDto newChatMessage = new ChatMessageDto(id, writer, body);
+        ChatDto newChatMessage = new ChatDto(id, writer, body);
         messages.add(newChatMessage);
 
         Map rs = new HashMap<String, Object>();
@@ -60,4 +60,3 @@ public class ChatController {
     }
 
 }
-view rawChatController hosted with ❤ by GitHub
