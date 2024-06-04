@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.apache.ibatis.type.Alias;
 
 import java.sql.Timestamp;
 
@@ -12,17 +13,13 @@ import java.sql.Timestamp;
 @AllArgsConstructor
 @Builder
 @Data
-public class BoardDto {
-
-    private int idx;
+@Alias("badto")
+public class BoardAnswerDto {
+    private int aidx;
     private int num;
+    private String writer;
     private String myid;
-    private String nickname;
-    private String title;
     private String content;
-    private String photo;
-    private int readcount=0;
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm",timezone = "Asia/Seoul")
     private Timestamp writeday;
-
 }

@@ -51,6 +51,7 @@ public class BoardDetailController {
 
         // 조회수 증가
         boardService.updateReadcount(idx);
+
         // num 에 해당하는 글 가져오기
         BoardDto dto = boardService.getData(idx);
 
