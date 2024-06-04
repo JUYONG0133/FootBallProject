@@ -25,8 +25,9 @@
 </c:if>
 <body>
 <form action="./update" method="post" enctype="multipart/form-data">
+    <c:set var="stpath" value="https://kr.object.ncloudstorage.com/bitcamp-bh-98/football"/>
     <!--hidden -->
-    <input type="hidden" name="num" value="${dto.num}">
+    <input type="hidden" name="idx" value="${dto.idx}">
     <input type="hidden" name="currentPage" value="${currentPage}">
 
     <table class="table table-bordered" style="width: 400px;">
@@ -34,13 +35,13 @@
         <tr>
             <th width="100" class="table-warning">제목</th>
             <td>
-                <input type="text" name="subject" value="${dto.subject}" class="form-control" required>
+                <input type="text" name="title" value="${dto.title}" class="form-control" required>
             </td>
         </tr>
         <tr>
             <th width="100" class="table-warning">사진</th>
             <td>
-                <img src="../save/${dto.uploadphoto}" style="width: 250px;height: 250px;" id="showimg1" onerror="this.src='../image/image1.png'"><br>
+                <img src="${stpath}/${dto.photo}" style="width: 250px;height: 250px;" id="showimg1" onerror="this.src='../image/pl.png'"><br>
                 <b>사진을 선택하지 않으면 기존사진이 유지됩니다.</b>
                 <input type="file" name="upload" id="upload" class="form-control">
             </td>

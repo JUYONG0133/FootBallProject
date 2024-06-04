@@ -190,7 +190,7 @@
             <c:if
                     test="${sessionScope.loginok!=null and sessionScope.loginid==dto.myid}">
                 <button type="button" class="btn btn-sm btn-outline-secondary"
-                        onclick="location.href='./updateform?num=${dto.num}&currentPage=${currentPage}'">
+                        onclick="location.href='./updateform?idx=${dto.idx}&currentPage=${currentPage}'">
                     수정</button>
 
                 <button type="button" class="btn btn-sm btn-outline-secondary"
@@ -207,12 +207,12 @@
 <script>
     function del()
     {
-        let num=${dto.num};
+        let num=${dto.idx};
         let currentPage=${currentPage};
 
         let a=confirm("정말 삭제하시겠습니까?");
         if(a){
-            location.href="./delete?num="+num+"&currentPage="+currentPage;
+            location.href="./delete?idx="+num+"&currentPage="+currentPage;
         }
     }
 </script>
