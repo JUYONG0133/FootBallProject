@@ -37,14 +37,14 @@
             line-height: 60px;
         }
         div.mainlayout > div.info {
-            top: 250px;
+            top: 200px;
             left: 30px;
-            width: 250px;
+            width: 350px;
             height: 200px;
         }
         div.mainlayout > div.main {
             top: 210px;
-            left: 300px;
+            left: 400px;
             width: 70%;
             height: auto;
         }
