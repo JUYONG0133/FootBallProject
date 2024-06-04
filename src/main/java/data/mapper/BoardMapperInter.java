@@ -27,5 +27,5 @@ public interface BoardMapperInter {
 
     public void updateBoard(BoardDto dto);
 
-    public void deleteBoard(int num);
+    public void deleteBoard(int idx);
 }
