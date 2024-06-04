@@ -43,9 +43,7 @@ public class BoardDetailController {
 
         // 해당 아이디가 갖고 있는 프로필 사진 가져오기
         MemberDto memberDto = memberService.getDataById(dto.getMyid());
-        if (memberDto == null) {
-            return "error"; // 에러 페이지로 리다이렉트
-        }
+
         String profile_photo = memberDto.getProfile();
 
         model.addAttribute("profile_photo", profile_photo);

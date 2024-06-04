@@ -24,4 +24,11 @@
     <delete id="deleteBoard" parameterType="int">
         delete from board where idx=#{idx}
     </delete>
+
+    <insert id="insertBoard" parameterType="BoardDto">
+        insert into board (nickname,myid,title,content,photo,writeday) values (#{nickname},#{myid},#{title},#{content},#{photo},now())
+        <selectKey keyProperty="idx" resultType="int" order="AFTER">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+    </insert>
 </mapper>

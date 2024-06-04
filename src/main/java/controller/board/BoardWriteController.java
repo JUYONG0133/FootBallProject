@@ -38,14 +38,15 @@ public class BoardWriteController {
     public String form(
             //새글일경우 null 값들이 넘어오므로 초기값을 지정한다
             //답글일경우는 원글이 갖고있는 각종 정보가 넘어온다
-            @RequestParam(defaultValue = "0") int num,
+
             @RequestParam(defaultValue = "1") int currentPage,
+            HttpSession session,
             Model model
     )
     {
         String subject="";
-
-        model.addAttribute("num",num);
+        String id = (String) session.getAttribute("loginid");
+        System.out.println(id);
         model.addAttribute("currentPage",currentPage);
         model.addAttribute("subject",subject);
 
@@ -79,12 +80,12 @@ public class BoardWriteController {
         boardService.insertBoard(dto);
 
         //확인할거...추가후 저장된 시퀀스값
-        System.out.println("num="+dto.getNum());
+        System.out.println("num="+dto.getIdx());
 
         //return "redirect:./list?currentPage="+currentPage;
 
         //추가후 상세페이지로 이동
-        return "redirect:./detail?num="+dto.getNum()+"&currentPage="+currentPage;
+        return "redirect:./detail?idx="+dto.getIdx()+"&currentPage="+currentPage;
        // return "board/list";
     }
 }
