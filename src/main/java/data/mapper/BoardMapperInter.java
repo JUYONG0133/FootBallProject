@@ -12,9 +12,7 @@ import java.util.Map;
 
 @Mapper
 public interface BoardMapperInter {
-    @Insert("""
-            insert into board (nickname,myid,title,content,photo,writeday) values (#{nickname},#{myid},#{title},#{content},#{photo},now())
-            """)
+
     public void insertBoard(BoardDto dto);
 
     public int getMaxNum();

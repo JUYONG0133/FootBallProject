@@ -27,7 +27,6 @@
 </c:if>
 
 <form action="./insert" method="post" enctype="multipart/form-data">
-    <input type="hidden" name="num" value="${num}">
     <input type="hidden" name="currentPage" value="${currentPage}">
 
     <table class="tab table table-bordered" style="width: 500px;">
@@ -35,7 +34,7 @@
         <tr>
             <th width="50" class="table-warning" style="background-color: #a0b4e5">제목</th>
             <td width="180">
-                <input type="text" name="title" value="${title}" class="form-control" required>
+                <input type="text" name="title" class="form-control" required>
             </td>
             <td rowspan="2" width="70">
                 <img src="" id="showimg1" style="height: 100px; position: absolute; border: 1px solid black" onerror="this.src='../image/uefalogo.jpeg'">
