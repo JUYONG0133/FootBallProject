@@ -66,6 +66,7 @@
 </head>
 <body>
 <c:set  var="root" value="<%=request.getContextPath()%>"/>
+<div style="margin-left: 150px;">
 <div class="container">
     <div class="logo-container">
         <img src="${root}/image/bundesliga.png" class="logo">
@@ -114,5 +115,6 @@
     </table>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</div>
 </body>
 </html>

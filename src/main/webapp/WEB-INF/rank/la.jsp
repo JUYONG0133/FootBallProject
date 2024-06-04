@@ -62,6 +62,7 @@
     </style>
 </head>
 <body>
+<div style="margin-left: 150px;">
 <c:set  var="root" value="<%=request.getContextPath()%>"/>
 <div class="container">
     <div class="logo-container">
@@ -108,6 +109,7 @@
         </c:forEach>
         </tbody>
     </table>
+</div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>

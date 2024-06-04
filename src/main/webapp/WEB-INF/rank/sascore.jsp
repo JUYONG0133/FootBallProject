@@ -53,6 +53,8 @@
     </style>
 </head>
 <body>
+<div style="margin-left: 150px;">
+
 <div class="container">
     <h1>${season-2000}-${season-1999} 시즌 세리에 득점자</h1>
     <button type="button" class="btn btn-primary btn-custom" onclick="location.href='./sa'">팀 순위</button>
@@ -82,6 +84,7 @@
         </c:forEach>
         </tbody>
     </table>
+</div>
 </div>
 </body>
 </html>
