@@ -16,6 +16,9 @@
         body *{
             font-family: 'Jua';
         }
+        .table {
+            margin-left: 330px;
+        }
 
         td.buttons button{
             width: 80px;
