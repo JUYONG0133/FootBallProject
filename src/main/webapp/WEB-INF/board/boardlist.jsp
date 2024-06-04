@@ -20,8 +20,8 @@
             padding: 0;
         }
         .container {
-            margin-top: 50px;
-            max-width: 800px;
+            max-width: 1200px;
+            margin-left: 200px;
             background-color: #fff;
             padding: 20px;
             border-radius: 8px;

@@ -82,7 +82,6 @@
 
 </head>
 <body>
-
 <div class="container">
     <div class="head">
         <h1>게시판</h1>
@@ -176,7 +175,6 @@
         </tbody>
     </table>
 </div>
-
 
 </body>
 </html>

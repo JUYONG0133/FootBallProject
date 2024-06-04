@@ -25,19 +25,20 @@
         history.back();
     </script>
 </c:if>
+<div style="margin-left: 100px;">
 
 <form action="./insert" method="post" enctype="multipart/form-data">
     <input type="hidden" name="currentPage" value="${currentPage}">
 
     <table class="tab table table-bordered" style="width: 500px;">
-        <caption align="top"><h4><b>${num == 0 ? "글쓰기" : "답글쓰기"}</b></h4></caption>
+        <caption align="top"><h4><b>글 쓰기</b></h4></caption>
         <tr>
             <th width="50" class="table-warning" style="background-color: #a0b4e5">제목</th>
             <td width="180">
                 <input type="text" name="title" class="form-control" required>
             </td>
             <td rowspan="2" width="70">
-                <img src="" id="showimg1" style="height: 100px; position: absolute; border: 1px solid black" onerror="this.src='../image/uefalogo.jpeg'">
+                <img src="" id="showimg1" style="height: 100px; position: relative; border: 1px solid black" onerror="this.src='../image/uefalogo.jpeg'">
             </td>
         </tr>
         <tr>
@@ -79,6 +80,7 @@
         });
     });
 </script>
+</div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

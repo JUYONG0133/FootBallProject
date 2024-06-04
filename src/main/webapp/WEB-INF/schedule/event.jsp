@@ -15,6 +15,7 @@
     </style>
 </head>
 <body>
+<div style="margin-left: 150px;">
 <div class="container">
     <h1 class="mt-4">경기 이벤트</h1>
     <c:if test="${not empty events}">
@@ -47,6 +48,7 @@
                 ${error}
         </div>
     </c:if>
+</div>
 </div>
 </body>
 </html>

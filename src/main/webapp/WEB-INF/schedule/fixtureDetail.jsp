@@ -16,6 +16,7 @@
     </style>
 </head>
 <body>
+<div style="margin-left: 150px;">
 <div class="container">
     <h1 class="mt-4">경기 상세 정보</h1>
     <c:if test="${not empty fixtureDetail}">
@@ -37,6 +38,7 @@
         </div>
     </c:if>
     <a href="${pageContext.request.contextPath}/schedule/events/${fixture.id}" class="btn btn-primary mt-3">경기 이벤트 보기</a>
+</div>
 </div>
 </body>
 </html>
