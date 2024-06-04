@@ -17,7 +17,8 @@
             font-family: 'Jua';
         }
         .table {
-            margin-left: 330px;
+            margin-top: 30px;
+            margin-left: 450px;
         }
 
         td.buttons button{
@@ -41,9 +42,9 @@
             answer_list();
 
             //댓글 추가 버튼
-            $("#btnansweradd").click(function(){
+            $("#btnaddguest").click(function(){
                 let num=${dto.num};
-                let content=$("#acontent").val();
+                let content=$("#gcontent").val();
                 if(content==''){
                     alert("댓글을 입력후 등록해주세요");
                     return;
@@ -173,13 +174,15 @@
         <tr>
             <td>
                 <b>댓글</b><br>
-                <textarea style="width: 80%;height: 60px;" id="acontent"></textarea>
+                <textarea style="width: 80%;height: 60px;" id="gcontent"></textarea>
                 <button type="button" class="btn btn-outline-success"
                         style="height: 65px;position: relative;top:-25px;"
-                        id="btnansweradd">등록</button>
+                        id="btnaddguest">등록</button>
             </td>
         </tr>
     </c:if>
+
+
     <tr>
         <td class="buttons">
 
