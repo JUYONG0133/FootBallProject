@@ -45,7 +45,8 @@
         }
         .carousel-title {
             position: absolute;
-            margin-left: 80px;
+            top: -30px;
+            left: 50%;
             transform: translateX(-50%);
             color: blue;
             font-weight: bold;
@@ -54,7 +55,6 @@
             margin-left: 20px;
             flex: 1;
         }
-
         .news-grid {
             display: flex;
             flex-wrap: wrap;
@@ -93,7 +93,7 @@
     <div class="top-section">
         <div class="carousel-wrapper" style="margin-left: 20px;">
             <div class="carousel-title">해외축구 이슈 Pick</div>
-            <div id="carouselExample" class="carousel" style="margin-top: 50px;">
+            <div id="carouselExample" class="carousel">
                 <a href="https://m.sports.naver.com/wfootball/article/477/0000494019">
                     <img src="${root}/image/p1.png">
                 </a>
@@ -133,28 +133,28 @@
                 </thead>
                 <tbody>
                 <tr>
-                    <td><a href="https://m.sports.naver.com/wfootball/article/117/0003837774">[오피셜] '2400억 FA 이적 완료' 레알, 음바페 영입 공식 발표...'5년 계약...</a></td>
+                    <td><a href="https://m.sports.naver.com/wfootball/article/117/0003837774"><li>[오피셜] '2400억 FA 이적 완료' 레알, 음바페 영입 공식 발표...'5년 계약...</li></a></td>
                 </tr>
                 <tr>
-                    <td><a href="https://m.sports.naver.com/wfootball/article/117/0003837759">"충격 대반전! 뮌헨 CB 판 뒤집혔다"…김민재 아니라 '데 리흐트+우파메카노...</a></td>
+                    <td><a href="https://m.sports.naver.com/wfootball/article/117/0003837759"><li>"충격 대반전! 뮌헨 CB 판 뒤집혔다"…김민재 아니라 '데 리흐트+우파메카노...</li></a></td>
                 </tr>
                 <tr>
-                    <td><a href="https://m.sports.naver.com/wfootball/article/411/0000046947">손흥민 동료, 휴가 도중 강도에 피습 사고...얼굴에 최루탄 습격+4억 5천짜리...</a></td>
+                    <td><a href="https://m.sports.naver.com/wfootball/article/411/0000046947"><li>손흥민 동료, 휴가 도중 강도에 피습 사고...얼굴에 최루탄 습격+4억 5천짜리...</li></a></td>
                 </tr>
                 <tr>
-                    <td><a href="https://m.sports.naver.com/wfootball/article/139/0002203719">‘갑작스러운 배신→첼시 이적’... 레스터 시티, 마레스카 감독 저격 “그의 결정에...</a></td>
+                    <td><a href="https://m.sports.naver.com/wfootball/article/139/0002203719"><li>‘갑작스러운 배신→첼시 이적’... 레스터 시티, 마레스카 감독 저격 “그의 결정에...</li></a></td>
                 </tr>
                 <tr>
-                    <td><a href="https://m.sports.naver.com/wfootball/article/076/0004152364">'너무 잔혹한 구단!' 토트넘, '리빙 레전드' 손흥민과 재계약 대신 홀대한 충격...</a></td>
+                    <td><a href="https://m.sports.naver.com/wfootball/article/076/0004152364"><li>'너무 잔혹한 구단!' 토트넘, '리빙 레전드' 손흥민과 재계약 대신 홀대한 충격...</li></a></td>
                 </tr>
                 <tr>
-                    <td><a href="https://m.sports.naver.com/wfootball/article/109/0005090401">음바페, 염원의 레알 입단...갈락티코 4기 ING -> 벨링엄+음바페 한솥밥...</a></td>
+                    <td><a href="https://m.sports.naver.com/wfootball/article/109/0005090401"><li>음바페, 염원의 레알 입단...갈락티코 4기 ING -> 벨링엄+음바페 한솥밥...</li></a></td>
                 </tr>
                 <tr>
-                    <td><a href="https://m.sports.naver.com/wfootball/article/076/0004152391">[오피셜]'기나긴 사가는 끝났다' 음바페, 레알 마드리드행 확정 '계약기간...</a></td>
+                    <td><a href="https://m.sports.naver.com/wfootball/article/076/0004152391"><li>[오피셜]'기나긴 사가는 끝났다' 음바페, 레알 마드리드행 확정 '계약기간...</li></a></td>
                 </tr>
                 <tr>
-                    <td><a href="https://m.sports.naver.com/wfootball/article/139/0002203717">‘맨유 배신→첼시로 이적’ 희대의 통수왕, 퍼거슨과 20년 만에 재회...</a></td>
+                    <td><a href="https://m.sports.naver.com/wfootball/article/139/0002203717"><li>‘맨유 배신→첼시로 이적’ 희대의 통수왕, 퍼거슨과 20년 만에 재회...</li></a></td>
                 </tr>
                 </tbody>
             </table>
@@ -200,22 +200,30 @@
         </div>
     </div>
 </div>
-<script type="text/javascript">
+
+<script>
+    const carousel = document.querySelector('.carousel');
     const images = document.querySelectorAll('.carousel img');
+    const nextButton = document.getElementById('next');
+    const prevButton = document.getElementById('prev');
+
     let currentIndex = 0;
+    const imageWidth = 110; // 이미지 너비 + 여백
 
-    document.getElementById('next').addEventListener('click', () => {
-        images[currentIndex].classList.remove('active');
-        currentIndex = (currentIndex + 1) % images.length;
-        images[currentIndex].classList.add('active');
+    nextButton.addEventListener('click', () => {
+        if (currentIndex < images.length - 1) {
+            currentIndex++;
+            carousel.style.transform = `translateX(${-currentIndex * imageWidth}px)`;
+        }
     });
 
-    document.getElementById('prev').addEventListener('click', () => {
-        images[currentIndex].classList.remove('active');
-        currentIndex = (currentIndex - 1 + images.length) % images.length;
-        images[currentIndex].classList.add('active');
+    prevButton.addEventListener('click', () => {
+        if (currentIndex > 0) {
+            currentIndex--;
+            carousel.style.transform = `translateX(${-currentIndex * imageWidth}px)`;
+        }
     });
-
 </script>
+
 </body>
 </html>
