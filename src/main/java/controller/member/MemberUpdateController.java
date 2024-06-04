@@ -23,7 +23,7 @@ public class MemberUpdateController {
     @NonNull
     private MemberService memberService;
 
-    private String bucketName="bitcamp-bucket-56";
+    private String bucketName="bitcamp-bh-98";
     private String folderName="photocommon";
 
     @Autowired
@@ -64,13 +64,16 @@ public class MemberUpdateController {
 
     //수정폼-이름,핸드폰,이메일,주소,생년월일 만 폼에 나타나도록
     @GetMapping("/updateform")
-    public String updateForm(@RequestParam int num,Model model)
+    public String updateForm(@RequestParam String id,Model model)
     {
         //db로부터 dto 얻기
+        int num = memberService.getNum(id);
         MemberDto dto=memberService.getData(num);
         model.addAttribute("dto", dto);
         return "login/mypage";
     }
+
+
     //수정후 디테일 페이지로 이동
     @PostMapping("/update")
     public String update(@ModelAttribute MemberDto dto)
