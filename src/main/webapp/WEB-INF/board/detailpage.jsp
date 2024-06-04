@@ -123,7 +123,7 @@
         }
     </script>
 </head>
-<c:set var="stpath" value="https://kr.object.ncloudstorage.com/bitcamp-bucket-98/football"/>
+<c:set var="stpath" value="https://kr.object.ncloudstorage.com/bitcamp-bh-98/football"/>
 
 <body>
 <table class="table" style="width: 500px;">
@@ -132,7 +132,7 @@
             <h2><b>${dto.title}</b></h2>
             <!-- 프로필 사진 -->
             <img src="${stpath}/${profile_photo}"
-                 onerror="this.src='../image/noimage2.png'"
+                 onerror="this.src='../image/pl.png'"
                  style="width: 45px;height: 45px;margin-right:5px;"
                  class="rounded-circle" align="left">
             <b>${dto.nickname}</b><br>
@@ -153,7 +153,7 @@
         <td>
             <c:if test="${dto.photo!='no' and dto.photo!=null}">
                 <img src="${stpath}/${dto.photo}"
-                     onerror="this.src='../image/noimage2.png'"
+                     onerror="this.src='../image/pl.png'"
                      style="max-width: 300px;">
                 <br><br>
             </c:if>

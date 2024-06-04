@@ -14,7 +14,7 @@ import java.sql.Timestamp;
 @Data
 public class BoardDto {
 
-    private int aidx;
+    private int idx;
     private int num;
     private String myid;
     private String nickname;

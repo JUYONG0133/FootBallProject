@@ -97,7 +97,7 @@
             <tr>
                 <td>${no - status.index}</td>
                 <td class="text-start">
-                    <a href="./detail?num=${dto.num}&currentPage=${currentPage}" class="text-decoration-none text-dark">
+                    <a href="./detail?idx=${dto.idx}&currentPage=${currentPage}" class="text-decoration-none text-dark">
                             ${dto.title}
                         <c:if test="${dto.photo != 'no' && dto.photo != null}">
                             <i class="bi bi-image" style="color: gray;"></i>
