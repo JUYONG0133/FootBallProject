@@ -59,8 +59,8 @@ public class BoardService {
     public void updateBoard(BoardDto dto){
         BoardInter.updateBoard(dto);
     }
-    public void deleteBoard(int num){
+    public void deleteBoard(int idx){
 
-       BoardInter.deleteBoard(num);
+       BoardInter.deleteBoard(idx);
     }
 }

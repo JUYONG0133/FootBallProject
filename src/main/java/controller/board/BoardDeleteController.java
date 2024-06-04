@@ -19,10 +19,10 @@ public class BoardDeleteController {
 
     @GetMapping("/delete")
     public String delete(
-            @RequestParam int num,
+            @RequestParam int idx,
             @RequestParam int currentPage
     ){
-        boardService.deleteBoard(num);
+        boardService.deleteBoard(idx);
 
 
         return "redirect:./list?currentPage="+currentPage;
