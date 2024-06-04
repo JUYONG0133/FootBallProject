@@ -14,6 +14,10 @@
         body * {
             font-family: 'Jua';
         }
+        .table th {
+            background-color: #343a40;
+            color: #ffffff;
+        }
     </style>
 </head>
 <body>

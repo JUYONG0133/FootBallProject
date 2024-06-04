@@ -2,6 +2,9 @@ package controller.league;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -11,11 +14,14 @@ import org.apache.http.util.EntityUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
-
+import java.util.List;
+import java.util.Map;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
+import com.fasterxml.jackson.core.type.TypeReference;
+
 
 @Controller
 public class A1ScheduleController {
@@ -24,10 +30,10 @@ public class A1ScheduleController {
     private final String apiUrl = "https://api-football-v1.p.rapidapi.com/v3/";
 
     @GetMapping("/schedule/a1")
-    public String test(@RequestParam(required = false, defaultValue = "1") int month,
-                       @RequestParam(required = false, defaultValue = "135") int league,
-                       @RequestParam(required = false, defaultValue = "2023") int season,
-                       Model model) {
+    public String getSchedule(@RequestParam(required = false, defaultValue = "1") int month,
+                              @RequestParam(required = false, defaultValue = "135") int league,
+                              @RequestParam(required = false, defaultValue = "2023") int season,
+                              Model model) {
         String endpoint = String.format("fixtures?league=%d&season=%d", league, season);
 
         try (CloseableHttpClient httpClient = HttpClients.createDefault()) {
@@ -51,6 +57,31 @@ public class A1ScheduleController {
         return "schedule/A1_league";
     }
 
+    @GetMapping("/schedule/detail/{id}")
+    public String getFixtureDetail(@PathVariable int id, Model model) {
+        String endpoint = String.format("fixtures?id=%d", id);
+
+        try (CloseableHttpClient httpClient = HttpClients.createDefault()) {
+            HttpGet request = new HttpGet(apiUrl + endpoint);
+            request.setHeader("x-rapidapi-host", "api-football-v1.p.rapidapi.com");
+            request.setHeader("x-rapidapi-key", apiKey);
+
+            HttpResponse response = httpClient.execute(request);
+            HttpEntity entity = response.getEntity();
+
+            if (entity != null) {
+                String result = EntityUtils.toString(entity);
+                FixtureDetail fixtureDetail = parseFixtureDetail(result);
+                model.addAttribute("fixtureDetail", fixtureDetail);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+            model.addAttribute("error", "경기 상세 정보를 불러오는데 실패했습니다.");
+        }
+
+        return "schedule/fixtureDetail";
+    }
+
     private List<Fixture> parseFixtures(String result, int month) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
         JsonNode rootNode = mapper.readTree(result);
@@ -61,61 +92,95 @@ public class A1ScheduleController {
             String date = fixtureNode.path("fixture").path("date").asText();
             int fixtureMonth = Integer.parseInt(date.substring(5, 7));
 
-            // 해당 월의 경기만 추가
             if (fixtureMonth == month) {
+                int id = fixtureNode.path("fixture").path("id").asInt();
                 String homeTeam = fixtureNode.path("teams").path("home").path("name").asText();
                 String awayTeam = fixtureNode.path("teams").path("away").path("name").asText();
-                String round = fixtureNode.path("league").path("round").asText(); // 라운드 정보 추가
-                fixtures.add(new Fixture(homeTeam, awayTeam, date, round)); // Fixture 객체 생성 시 라운드 정보 추가
+                String round = fixtureNode.path("league").path("round").asText();
+                fixtures.add(new Fixture(id, homeTeam, awayTeam, date, round));
             }
         }
 
         return fixtures;
     }
 
+    private FixtureDetail parseFixtureDetail(String result) throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        JsonNode rootNode = mapper.readTree(result);
+        JsonNode fixtureNode = rootNode.path("response").get(0);
+
+        int id = fixtureNode.path("fixture").path("id").asInt();
+        String homeTeam = fixtureNode.path("teams").path("home").path("name").asText();
+        String awayTeam = fixtureNode.path("teams").path("away").path("name").asText();
+        String date = fixtureNode.path("fixture").path("date").asText();
+        String round = fixtureNode.path("league").path("round").asText();
+        String venue = fixtureNode.path("fixture").path("venue").path("name").asText();
+        String status = fixtureNode.path("fixture").path("status").path("long").asText();
+
+        return new FixtureDetail(id, homeTeam, awayTeam, date, round, venue, status);
+    }
+
+
+    @GetMapping("/schedule/events/{id}")
+    public String getMatchEvents(@PathVariable int id, Model model) {
+        String endpoint = String.format("fixtures/%d/events", id);
+
+        try (CloseableHttpClient httpClient = HttpClients.createDefault()) {
+            HttpGet request = new HttpGet(apiUrl + endpoint);
+            request.setHeader("x-rapidapi-host", "api-football-v1.p.rapidapi.com");
+            request.setHeader("x-rapidapi-key", apiKey);
+
+            HttpResponse response = httpClient.execute(request);
+            HttpEntity entity = response.getEntity();
+
+            if (entity != null) {
+                String result = EntityUtils.toString(entity);
+                List<Map<String, Object>> events = parseMatchEvents(result);
+                model.addAttribute("events", events);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+            model.addAttribute("error", "경기 이벤트를 불러오는데 실패했습니다.");
+        }
+
+        return "schedule/event";
+    }
+
+    private List<Map<String, Object>> parseMatchEvents(String result) throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        JsonNode rootNode = mapper.readTree(result);
+        JsonNode eventsNode = rootNode.path("response");
+
+        // 이벤트가 JSON 객체 형식으로 반환되는 것으로 가정합니다.
+        // 실제 API 응답 구조에 따라 파싱 로직을 조정해야 합니다.
+        List<Map<String, Object>> events = mapper.readValue(eventsNode.traverse(),
+                new TypeReference<List<Map<String, Object>>>() {});
+
+        return events;
+    }
+
+    @AllArgsConstructor
+    @Data
     public static class Fixture {
+        private int id;
         private String homeTeam;
         private String awayTeam;
         private String date;
         private String round;
 
-        public Fixture(String homeTeam, String awayTeam, String date, String round) {
-            this.homeTeam = homeTeam;
-            this.awayTeam = awayTeam;
-            this.date = date;
-            this.round = round;
-        }
+    }
 
-        public String getHomeTeam() {
-            return homeTeam;
-        }
+    @AllArgsConstructor
+    @Data
+    public static class FixtureDetail {
+        private int id;
+        private String homeTeam;
+        private String awayTeam;
+        private String date;
+        private String round;
+        private String venue;
+        private String status;
 
-        public void setHomeTeam(String homeTeam) {
-            this.homeTeam = homeTeam;
-        }
 
-        public String getAwayTeam() {
-            return awayTeam;
-        }
-
-        public void setAwayTeam(String awayTeam) {
-            this.awayTeam = awayTeam;
-        }
-
-        public String getDate() {
-            return date;
-        }
-
-        public void setDate(String date) {
-            this.date = date;
-        }
-
-        public String getRound() {
-            return round;
-        }
-
-        public void setRound(String round) {
-            this.round = round;
-        }
     }
 }

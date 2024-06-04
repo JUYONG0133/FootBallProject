@@ -33,9 +33,9 @@ public class BoardDetailController {
             //num 에 해당하는 글 가져오기
             BoardDto dto=boardService.getData(num);
             //해당 아이디가 갖고 있는 프로필 사진 가져오기
-            String profile_photo=memberService.getDataById(dto.getMyid()).getProfile();
+            //String profile_photo=memberService.getDataById(dto.getMyid()).getProfile();
 
-            model.addAttribute("profile_photo", profile_photo);
+           // model.addAttribute("profile_photo", profile_photo);
             model.addAttribute("dto", dto);
             model.addAttribute("currentPage", currentPage);
 
