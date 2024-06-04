@@ -37,8 +37,8 @@
             text-align: center;
         }
         .table th {
-            background-color: #4CAF50;
-            color: #fff;
+            background-color: #343a40;
+            color: #ffffff;
         }
         .table-striped tbody tr:nth-of-type(odd) {
             background-color: #f2f2f2;
