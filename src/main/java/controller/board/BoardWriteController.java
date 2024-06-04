@@ -75,6 +75,7 @@ public class BoardWriteController {
         //member db 로부터 아이디에 해당하는 이름을 얻어서 dto 에 저장
         String writer=memberService.getDataById(loginid).getName();
         dto.setNickname(writer);
+//        dto.setReadcount(0);
 
         //db insert
         boardService.insertBoard(dto);

@@ -62,11 +62,11 @@ public class MemberService {
         return n == 1 ? true : false;
     }
 
-/*
-    public void deleteMember(int num) {
-        memInter.deleteMember(num);
-    }
-*/
+///*
+//    public void deleteMember(int num) {
+//        memInter.deleteMember(num);
+//    }
+//*/
 
     public boolean isLoginCheck(String myid, String pass) {
         return memInter.isLoginCheck(myid, pass) == 1 ? true : false;

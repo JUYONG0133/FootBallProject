@@ -42,9 +42,9 @@
             answer_list();
 
             //댓글 추가 버튼
-            $("#btnaddguest").click(function(){
-                let num=${dto.num};
-                let content=$("#gcontent").val();
+            $("#btnansweradd").click(function(){
+                let num=${dto.idx};
+                let content=$("#acontent").val();
                 if(content==''){
                     alert("댓글을 입력후 등록해주세요");
                     return;
@@ -54,7 +54,7 @@
                     type:'post',
                     dataType:'text',
                     url:"./ainsert",
-                    data:{"idx":idx,"content":content},
+                    data:{"num":num,"content":content},
                     success:function(){
                         //댓글 목록 다시 출력
                         answer_list();
@@ -84,7 +84,7 @@
         });
 
         function answer_list(){
-            let num=${dto.num};
+            let num=${dto.idx};
             //로그인중인지 로그인중일경우 로그인 아이디 얻기
             let loginok='${sessionScope.loginok}';
             let loginid='${sessionScope.loginid}';
@@ -103,7 +103,7 @@
                     $.each(data,function(idx,ele){
                         s+=
                             `
-					  \${ele.nickname}(\${ele.myid})
+					  \${ele.writer}(\${ele.myid})
 					  <span class="aday">\${ele.writeday}</span>
 					  `;
                         //로그인중이면서 댓글 아이디와 로그인 아이디가 같을경우 삭제 아이콘 추가
@@ -149,7 +149,7 @@
             <span style="float: right;color: gray;">
 			  	<i class="bi bi-chat-dots"></i>
 			  	&nbsp;
-			  	댓글 <span class="answercount">0</span>
+			  	댓글 <span class="answercount"></span>
 			  </span>
         </td>
     </tr>
@@ -174,10 +174,10 @@
         <tr>
             <td>
                 <b>댓글</b><br>
-                <textarea style="width: 80%;height: 60px;" id="gcontent"></textarea>
+                <textarea style="width: 80%;height: 60px;" id="acontent"></textarea>
                 <button type="button" class="btn btn-outline-success"
                         style="height: 65px;position: relative;top:-25px;"
-                        id="btnaddguest">등록</button>
+                        id="btnansweradd">등록</button>
             </td>
         </tr>
     </c:if>

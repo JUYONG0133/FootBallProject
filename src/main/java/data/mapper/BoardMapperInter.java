@@ -23,7 +23,7 @@ public interface BoardMapperInter {
 
     public int getTotalCount();
 
-    public void updateReadcount(int num);
+    public void updateReadcount(int idx);
 
     public void updateBoard(BoardDto dto);
 

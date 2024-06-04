@@ -51,9 +51,9 @@ public class BoardService {
         return BoardInter.getTotalCount();
     }
 
-    public void updateReadcount(int num)
+    public void updateReadcount(int idx)
     {
-        BoardInter.updateReadcount(num);
+        BoardInter.updateReadcount(idx);
     }
 
     public void updateBoard(BoardDto dto){
