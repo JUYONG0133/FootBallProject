@@ -50,6 +50,7 @@
         }
         .btn-group-end {
             float: right;
+            margin-right: 70px;
         }
         .logo-container {
             display: flex;
@@ -67,7 +68,7 @@
         <img src="${root}/image/laliga.png" class="logo">
         <h1>${season-2000}-${season-1999} 시즌 스페인 라리가</h1>
     </div>
-    <button type="button" class="btn btn-primary btn-custom" onclick="location.href='./lascore'">개인 선수 순위</button>
+    <button type="button" class="btn btn-primary btn-custom" onclick="location.href='./lascore'" style="margin-left: 70px;">개인 선수 순위</button>
     <div class="btn-group btn-group-end">
         <button type="button" class="btn btn-secondary btn-custom" onclick="location.href='./pl'">프리미어리그</button>
         <button type="button" class="btn btn-secondary btn-custom" onclick="location.href='./sa'">세리에 A</button>
