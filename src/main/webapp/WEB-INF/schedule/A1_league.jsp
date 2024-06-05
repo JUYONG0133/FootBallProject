@@ -20,7 +20,7 @@
     </style>
 </head>
 <body>
-<div style="margin-left: 150px;">
+<div style="margin-left: 50px;">
 <div class="container">
     <h1 class="mt-4 d-flex align-items-center">
         경기 일정

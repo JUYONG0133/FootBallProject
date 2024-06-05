@@ -50,18 +50,30 @@
         .btn-group-end {
             float: right;
         }
+        .logo-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px; /* 이미지와 제목 사이에 여백 추가 */
+        }
+
+        .logo {
+            margin-right: 10px; /* 이미지 오른쪽 여백 설정 */
+        }
     </style>
 </head>
 <body>
-<div style="margin-left: 150px;">
+<div style="margin-left: 50px;">
 <div class="container">
-    <h1>${season-2000}-${season-1999} 시즌 라리가 득점자</h1>
+    <div class="logo-container">
+        <img src="${root}/image/laliga.png" class="logo">
+        <h1>${season-2000}-${season-1999} 시즌 스페인 라리가</h1>
+    </div>
     <button type="button" class="btn btn-primary btn-custom" onclick="location.href='./la'">팀 순위</button>
-    <div class="btn-group btn-group-end">
+    <div class="btn-group btn-group-end" style="margin-bottom: 30px;">
         <button type="button" class="btn btn-secondary btn-custom" onclick="location.href='./plscore'">프리미어리그</button>
         <button type="button" class="btn btn-secondary btn-custom" onclick="location.href='./sascore'">세리에 A</button>
         <button type="button" class="btn btn-secondary btn-custom" onclick="location.href='./bunscore'">분데스리가</button>
-        <button type="button" class="btn btn-secondary btn-custom" onclick="location.href='./lascore'">리리가</button>
+        <button type="button" class="btn btn-secondary btn-custom" onclick="location.href='./lascore'">라리가</button>
     </div>
     <table class="table table-striped">
         <thead>

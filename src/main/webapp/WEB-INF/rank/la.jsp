@@ -62,7 +62,7 @@
     </style>
 </head>
 <body>
-<div style="margin-left: 150px;">
+<div style="margin-left: 50px;">
 <c:set  var="root" value="<%=request.getContextPath()%>"/>
 <div class="container">
     <div class="logo-container">
@@ -74,7 +74,7 @@
         <button type="button" class="btn btn-secondary btn-custom" onclick="location.href='./pl'">프리미어리그</button>
         <button type="button" class="btn btn-secondary btn-custom" onclick="location.href='./sa'">세리에 A</button>
         <button type="button" class="btn btn-secondary btn-custom" onclick="location.href='./bun'">분데스리가</button>
-        <button type="button" class="btn btn-secondary btn-custom" onclick="location.href='./la'">리리가</button>
+        <button type="button" class="btn btn-secondary btn-custom" onclick="location.href='./la'">라리가</button>
     </div>
     <br><br>
     <table class="table table-striped">

@@ -44,8 +44,8 @@
         }
         div.mainlayout > div.main {
             top: 210px;
-            left: 400px;
-            width: 70%;
+            left: 550px;
+            width: 60%;
             height: auto;
         }
     </style>
@@ -66,5 +66,6 @@
         <tiles:insertAttribute name="main"/>
     </div>
 </div>
+
 </body>
 </html>
