@@ -26,6 +26,6 @@ public class BoardDto {
     private Timestamp writeday;
     private int recount; //댓글의 개수
     private int likes;
-    private int unlike;
+    private int unlikes;
 
 }
