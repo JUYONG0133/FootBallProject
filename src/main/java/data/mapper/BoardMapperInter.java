@@ -29,9 +29,9 @@ public interface BoardMapperInter {
 
     public void deleteBoard(int idx);
 
-    BoardDto getDataidx(int idx);
+    public BoardDto getDataidx(int idx);
 
-    void incrementLikes(int idx);
+    public void incrementLikes(int idx);
 
-    void incrementUnlikes(int idx);
+    public void incrementUnlikes(int idx);
 }
