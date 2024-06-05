@@ -8,6 +8,12 @@
     <select id="getData" parameterType="int" resultType="BoardDto">
         select * from board where idx=#{idx}
     </select>
+
+    <select id="getDataidx" parameterType="int" resultType="data.dto.BoardDto">
+    SELECT * FROM board WHERE idx = #{idx}
+    </select>
+
+
     <select id="getPagingList" resultType="BoardDto" parameterType="Map">
         select * from board order by idx desc limit #{start},#{perpage}
     </select>
