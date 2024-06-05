@@ -189,8 +189,6 @@
 <%--        <td class="buttons">--%>
 
 
-
-
 <%--            <!-- 수정,삭제는 로그인중이며 자기가 쓴글에만 나타나게 하기 -->--%>
 <%--            <c:if--%>
 <%--                    test="${sessionScope.loginok!=null and sessionScope.loginid==dto.myid}">--%>
@@ -225,8 +223,8 @@
 <%--</html>--%>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+         pageEncoding="UTF-8" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
@@ -242,156 +240,202 @@
         body {
             font-family: 'Jua', sans-serif;
         }
+
         .container {
             margin-top: 30px;
             max-width: 900px;
         }
+
         .post-header {
             display: flex;
             align-items: center;
+            border: 2px solid salmon;
+            border-radius: 20px;
             margin-bottom: 20px;
         }
+
         .post-header img {
             width: 45px;
             height: 45px;
             margin-right: 10px;
             border-radius: 50%;
         }
+
         .post-header .title {
             font-size: 1.5rem;
             font-weight: bold;
         }
+
         .post-header .metadata {
             color: gray;
             font-size: 0.9rem;
         }
+
         .post-content {
             background: white;
             padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border: 2px solid salmon;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
+
         .post-content img {
             max-width: 100%;
             border-radius: 8px;
             margin: 10px 0;
         }
+
         .comment-section {
             margin-top: 30px;
             background: white;
             padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
+
         .comment-section textarea {
             width: 100%;
             border-radius: 8px;
             padding: 10px;
             margin-bottom: 10px;
         }
+
         .comment-section .btn {
             height: 45px;
         }
+
         .answerlist {
             margin-top: 20px;
         }
+
         .answerlist .comment {
             border-bottom: 1px solid #dee2e6;
             padding: 10px 0;
         }
+
         .answerlist .comment:last-child {
             border-bottom: none;
         }
+
         .answerlist .comment .content {
             white-space: pre-wrap;
         }
+
         .answerlist .comment .actions {
             color: gray;
             font-size: 0.9em;
             margin-top: 5px;
         }
+
         .post-buttons {
             margin-top: 20px;
         }
+
         .post-buttons .btn {
             margin-right: 10px;
         }
     </style>
     <script type="text/javascript">
-        $(function(){
+        $(function () {
             answer_list();
 
-            $("#btnansweradd").click(function(){
-                let num=${dto.idx};
-                let content=$("#acontent").val();
-                if(content==''){
+            $("#btnansweradd").click(function () {
+                let num =${dto.idx};
+                let content = $("#acontent").val();
+                if (content == '') {
                     alert("댓글을 입력후 등록해주세요");
                     return;
                 }
 
                 $.ajax({
-                    type:'post',
-                    dataType:'json', // 데이터 타입을 json으로 변경
-                    url:"./ainsert",
-                    data:{"num":num,"content":content},
-                    success:function(data){
+                    type: 'post',
+                    dataType: 'json', // 데이터 타입을 json으로 변경
+                    url: "./ainsert",
+                    data: {"num": num, "content": content},
+                    success: function (data) {
                         answer_list();
                         $("#acontent").val("");
                     },
-                    error:function(request,status,error){
-                        console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+                    error: function (request, status, error) {
+                        console.log("code:" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" + error);
                     }
                 });
             });
 
-            $(document).on("click",".adel",function(){
-                let aidx=$(this).attr("aidx");
-                let a=confirm("해당 댓글을 삭제할까요?");
-                if(a){
+            $(document).on("click", ".adel", function () {
+                let aidx = $(this).attr("aidx");
+                let a = confirm("해당 댓글을 삭제할까요?");
+                if (a) {
                     $.ajax({
-                        type:"get",
-                        dataType:"text",
-                        data:{"aidx":aidx},
-                        url:"./adelete",
-                        success:function(){
+                        type: "get",
+                        dataType: "text",
+                        data: {"aidx": aidx},
+                        url: "./adelete",
+                        success: function () {
                             answer_list();
                         },
-                        error:function(request,status,error){
-                            console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+                        error: function (request, status, error) {
+                            console.log("code:" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" + error);
                         }
                     })
                 }
             });
-        });
+            $(document).on("click", "#likeButton", function () {
 
-        function answer_list(){
-            let num=${dto.idx};
-            let loginok='${sessionScope.loginok}';
-            let loginid='${sessionScope.loginid}';
+                    let likes = ${dto.idx};
+                $.ajax({
+                    type: 'post',
+                    dataType: 'json', // 데이터 타입을 json으로 변경
+                    url: "./like",
+                    data: {"likes": likes},
+                    success: function (data) {
+
+
+                        alert("ddd");
+                        location.reload(); // 페이지를 새로고침하여 좋아요 수를 업데이트
+                        }
+                    });
+                });
+
+            $(document).on("click", "#dislikeButton", function () {
+                    let unlike = ${dto.idx};
+                    $.post("./dislike", {postId: unlike}, function () {
+                        location.reload(); // 페이지를 새로고침하여 싫어요 수를 업데이트
+                    });
+                });
+            });
+
+
+
+
+        function answer_list() {
+            let num =${dto.idx};
+            let loginok = '${sessionScope.loginok}';
+            let loginid = '${sessionScope.loginid}';
 
             $.ajax({
-                type:"get",
-                dataType:"json",
-                data:{"num":num},
-                url:"./alist",
-                success:function(data){
+                type: "get",
+                dataType: "json",
+                data: {"num": num},
+                url: "./alist",
+                success: function (data) {
                     $(".answercount").text(data.length);
-                    let s="";
-                    $.each(data,function(idx,ele){
-                        s+=`
+                    let s = "";
+                    $.each(data, function (idx, ele) {
+                        s += `
                             <div class="comment">
                                 <b>\${ele.writer}(\${ele.myid})</b>
                                 <span class="aday">\${ele.writeday}</span>`;
-                        if(loginok=='yes' && loginid==ele.myid){
-                            s+=`<i class="bi bi-trash adel" aidx="\${ele.aidx}" style="cursor:pointer;"></i>`;
+                        if (loginok == 'yes' && loginid == ele.myid) {
+                            s += `<i class="bi bi-trash adel" aidx="\${ele.aidx}" style="cursor:pointer;"></i>`;
                         }
-                        s+=`<div class="content">\${ele.content}</div>
+                        s += `<div class="content">\${ele.content}</div>
                             </div>`;
                     });
                     $(".answerlist").html(s);
                 },
-                error:function(request,status,error){
-                    console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+                error: function (request, status, error) {
+                    console.log("code:" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" + error);
                 }
             })
         }
@@ -423,6 +467,14 @@
         <pre>${dto.content}</pre>
     </div>
 
+    <div>
+        <button type="button" id="likeButton">좋아요</button>
+
+        <button type="button" id="dislikeButton">싫어요</button>
+   
+    </div>
+
+
     <div class="comment-section">
         <h5>댓글</h5>
         <div class="answerlist"></div>
@@ -434,21 +486,24 @@
 
     <div class="post-buttons">
         <c:if test="${sessionScope.loginok!=null and sessionScope.loginid==dto.myid}">
-            <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href='./updateform?idx=${dto.idx}&currentPage=${currentPage}'">수정</button>
+            <button type="button" class="btn btn-sm btn-outline-secondary"
+                    onclick="location.href='./updateform?idx=${dto.idx}&currentPage=${currentPage}'">수정
+            </button>
             <button type="button" class="btn btn-sm btn-outline-secondary" onclick="del()">삭제</button>
         </c:if>
-        <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href='./list?currentPage=${currentPage}'">목록</button>
+        <button type="button" class="btn btn-sm btn-outline-secondary"
+                onclick="location.href='./list?currentPage=${currentPage}'">목록
+        </button>
     </div>
 </div>
 <script>
-    function del()
-    {
-        let num=${dto.idx};
-        let currentPage=${currentPage};
+    function del() {
+        let num =${dto.idx};
+        let currentPage =${currentPage};
 
-        let a=confirm("정말 삭제하시겠습니까?");
-        if(a){
-            location.href="./delete?idx="+num+"&currentPage="+currentPage;
+        let a = confirm("정말 삭제하시겠습니까?");
+        if (a) {
+            location.href = "./delete?idx=" + num + "&currentPage=" + currentPage;
         }
     }
 </script>

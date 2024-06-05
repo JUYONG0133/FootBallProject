@@ -25,4 +25,7 @@ public class BoardDto {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm",timezone = "Asia/Seoul")
     private Timestamp writeday;
     private int recount; //댓글의 개수
+    private int likes;
+    private int unlike;
+
 }
