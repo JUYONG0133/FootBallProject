@@ -25,8 +25,8 @@
         .post-header {
             display: flex;
             align-items: center;
-            border: 2px solid salmon;
-            border-radius: 20px;
+            padding: 10px;
+            border-bottom: 2px solid #ddd;
             margin-bottom: 20px;
         }
 
@@ -47,26 +47,19 @@
             font-size: 0.9rem;
         }
 
-        .post-content {
+        .post-content, .comment-section {
             background: white;
             padding: 20px;
             border-radius: 8px;
-            border: 2px solid salmon;
+            border: 1px solid #ddd;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
         }
 
         .post-content img {
             max-width: 100%;
             border-radius: 8px;
             margin: 10px 0;
-        }
-
-        .comment-section {
-            margin-top: 30px;
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         .comment-section textarea {
@@ -105,6 +98,8 @@
 
         .post-buttons {
             margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
         }
 
         .post-buttons .btn {
@@ -224,7 +219,7 @@
 
 <body>
 <div class="container">
-    <div class="post-header">
+    <div class="post-header" style="border: 1px solid gray; border-radius: 20px;">
         <img src="${stpath}/${profile_photo}" onerror="this.src='../image/noimage1.png'">
         <div>
             <div class="title">${dto.title}</div>
@@ -245,18 +240,22 @@
         </c:if>
         <pre>${dto.content}</pre>
     </div>
-
-    <div class="post-actions">
-        <button id="likeBtn">좋아요 (<span id="likeCount">${dto.likes}</span>)</button>
-        <button id="unlikeBtn">싫어요 (<span id="unlikeCount">${dto.unlikes}</span>)</button>
+    <div class="post-actions d-flex justify-content-between" style="margin-bottom: 30px;">
+        <button id="likeBtn" class="btn btn-outline-primary">
+            <i class="bi bi-hand-thumbs-up"></i> 좋아요 (<span id="likeCount">${dto.likes}</span>)
+        </button>
+        <button id="unlikeBtn" class="btn btn-outline-danger">
+            <i class="bi bi-hand-thumbs-down"></i> 싫어요 (<span id="unlikeCount">${dto.unlikes}</span>)
+        </button>
     </div>
 
     <div class="comment-section">
         <h5>댓글</h5>
+        <hr>
         <div class="answerlist"></div>
         <c:if test="${sessionScope.loginok!=null}">
-            <textarea id="acontent" placeholder="댓글을 입력하세요..."></textarea>
-            <button type="button" class="btn btn-outline-success" id="btnansweradd">등록</button>
+            <textarea id="acontent" class="form-control" placeholder="댓글을 입력하세요..."></textarea>
+            <button type="button" class="btn btn-outline-success mt-2" id="btnansweradd">등록</button>
         </c:if>
     </div>
 

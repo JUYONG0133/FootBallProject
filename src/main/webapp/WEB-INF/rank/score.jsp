@@ -75,7 +75,7 @@
             <button type="button" class="btn btn-secondary btn-custom" onclick="location.href='./bunscore'">분데스리가</button>
             <button type="button" class="btn btn-secondary btn-custom" onclick="location.href='./lascore'">라리가</button>
         </div>
-        <table class="table table-striped">라
+        <table class="table table-striped">
             <tr>
                 <th>#</th>
                 <th>선수</th>
