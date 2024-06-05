@@ -380,9 +380,9 @@
                     })
                 }
             });
-            $(document).on("click", "#likeButton", function () {
 
-                    let likes = ${dto.idx};
+            $("#likeButton").click(function (){
+                let likes = ${dto.idx};
                 $.ajax({
                     type: 'post',
                     dataType: 'json', // 데이터 타입을 json으로 변경
@@ -393,9 +393,13 @@
 
                         alert("ddd");
                         location.reload(); // 페이지를 새로고침하여 좋아요 수를 업데이트
-                        }
-                    });
+                    }
                 });
+            })
+
+
+
+
 
             $(document).on("click", "#dislikeButton", function () {
                     let unlike = ${dto.idx};
