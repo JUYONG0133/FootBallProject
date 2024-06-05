@@ -128,7 +128,7 @@
                     dataType: 'json', // 데이터 타입을 json으로 변경
                     url: "./ainsert",
                     data: {"num": num, "content": content},
-                    success: function (data) {
+                    success: function () {
                         answer_list();
                         $("#acontent").val("");
                     },
@@ -203,12 +203,12 @@
                     $.each(data, function (idx, ele) {
                         s += `
                             <div class="comment">
-                                <b>${ele.writer}(${ele.myid})</b>
-                                <span class="aday">${ele.writeday}</span>`;
+                                <b>\${ele.writer}(\${ele.myid})</b>
+                                <span class="aday">\${ele.writeday}</span>`;
                         if (loginok == 'yes' && loginid == ele.myid) {
-                            s += `<i class="bi bi-trash adel" aidx="${ele.aidx}" style="cursor:pointer;"></i>`;
+                            s += `<i class="bi bi-trash adel" aidx="\${ele.aidx}" style="cursor:pointer;"></i>`;
                         }
-                        s += `<div class="content">${ele.content}</div>
+                        s += `<div class="content">\${ele.content}</div>
                             </div>`;
                     });
                     $(".answerlist").html(s);
