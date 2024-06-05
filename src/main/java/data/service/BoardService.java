@@ -24,13 +24,7 @@ public class BoardService {
         //db 에 insert
         BoardInter.insertBoard(dto);
     }
-//    public List<BoardDto> getAnswerData(int num){
-//
-//        return BoardInter.getAnswerData(num);
-//    }
-//    public void deleteAnswer(int aidx){
-//        BoardInter.deleteAnswer(aidx);
-//    }
+
 
     public List<BoardDto> getPagingList(int start,int perpage)
     {
@@ -54,6 +48,14 @@ public class BoardService {
     public void updateReadcount(int idx)
     {
         BoardInter.updateReadcount(idx);
+    }
+    public void likes(int likes)
+    {
+        BoardInter.likes(likes);
+    }
+    public void unlike(int unlike)
+    {
+        BoardInter.unlike(unlike);
     }
 
     public void updateBoard(BoardDto dto){

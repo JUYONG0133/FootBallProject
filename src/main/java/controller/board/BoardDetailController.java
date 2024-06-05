@@ -39,6 +39,8 @@ public class BoardDetailController {
     @GetMapping("/detail")
     public String detail(
             @RequestParam int idx,
+//            @RequestParam int likes,
+//            @RequestParam int unlike,
             @RequestParam int currentPage,
             Model model,
             HttpSession session
@@ -51,6 +53,10 @@ public class BoardDetailController {
 
         // 조회수 증가
         boardService.updateReadcount(idx);
+
+//        boardService.likes(likes);
+//
+//        boardService.unlike(unlike);
 
         // num 에 해당하는 글 가져오기
         BoardDto dto = boardService.getData(idx);
