@@ -49,20 +49,23 @@ public class BoardService {
     {
         BoardInter.updateReadcount(idx);
     }
-    public void likes(int likes)
-    {
-        BoardInter.likes(likes);
-    }
-    public void unlike(int unlike)
-    {
-        BoardInter.unlike(unlike);
-    }
-
     public void updateBoard(BoardDto dto){
         BoardInter.updateBoard(dto);
     }
     public void deleteBoard(int idx){
 
        BoardInter.deleteBoard(idx);
+    }
+
+    public void incrementLikes(int idx) {
+        BoardInter.incrementLikes(idx);
+    }
+
+    public void incrementUnlikes(int idx) {
+        BoardInter.incrementUnlikes(idx);
+    }
+
+    public BoardDto getBoardByIdx(int idx) {
+        return BoardInter.getDataidx(idx);
     }
 }

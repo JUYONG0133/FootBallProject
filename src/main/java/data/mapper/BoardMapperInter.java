@@ -25,11 +25,13 @@ public interface BoardMapperInter {
 
     public void updateReadcount(int idx);
 
-    public void likes(int likes);
-
-    public void unlike(int unlikes);
-
     public void updateBoard(BoardDto dto);
 
     public void deleteBoard(int idx);
+
+    BoardDto getDataidx(int idx);
+
+    void incrementLikes(int idx);
+
+    void incrementUnlikes(int idx);
 }
