@@ -140,10 +140,6 @@
                     <img src="${root}/image/p8.png">
                 </a>
             </div>
-            <div class="carousel-controls">
-                <button class="btn btn-light" id="prev" style="background-color: #b6d2fc;"><i class="bi bi-chevron-left"></i></button>
-                <button class="btn btn-light" id="next" style="background-color: #b6d2fc;"><i class="bi bi-chevron-right"></i></button>
-            </div>
         </div>
         <div class="news-table" style="margin-left: 100px;">
             <table class="table">
@@ -225,25 +221,19 @@
 <script>
     const carousel = document.querySelector('.carousel');
     const images = document.querySelectorAll('.carousel img');
-    const nextButton = document.getElementById('next');
-    const prevButton = document.getElementById('prev');
-
     let currentIndex = 0;
     const imageWidth = 110; // 이미지 너비 + 여백
+    const totalImages = images.length;
 
-    nextButton.addEventListener('click', () => {
-        if (currentIndex < images.length - 1) {
-            currentIndex++;
-            carousel.style.transform = `translateX(${-currentIndex * imageWidth}px)`;
+    function autoSlide() {
+        currentIndex++;
+        if (currentIndex >= totalImages) {
+            currentIndex = 0;
         }
-    });
+        carousel.style.transform = `translateX(${-currentIndex * imageWidth}px)`;
+    }
 
-    prevButton.addEventListener('click', () => {
-        if (currentIndex > 0) {
-            currentIndex--;
-            carousel.style.transform = `translateX(${-currentIndex * imageWidth}px)`;
-        }
-    });
+    setInterval(autoSlide, 2000); // 2초마다 이미지 이동
 </script>
 
 </body>

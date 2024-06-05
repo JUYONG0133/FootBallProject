@@ -18,7 +18,7 @@
         }
         .table {
             margin-top: 30px;
-            margin-left: 450px;
+            margin-left: 150px;
         }
 
         td.buttons button{
@@ -131,7 +131,7 @@
 <c:set var="stpath" value="https://kr.object.ncloudstorage.com/bitcamp-bh-98/football"/>
 
 <body>
-<table class="table" style="width: 500px;">
+<table class="table" style="width: 1100px;">
     <tr>
         <td>
             <h2><b>${dto.title}</b></h2>
@@ -168,6 +168,7 @@
     <tr>
         <td>
             <!-- 댓글 출력할 영역 -->
+            댓글
             <div class="answerlist"></div>
         </td>
     </tr>
