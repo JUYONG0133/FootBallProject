@@ -18,12 +18,7 @@
     <update id="updateReadcount" parameterType="int">
         update board set readcount=readcount+1 where idx=#{idx}
     </update>
-    <update id="like" parameterType="int">
-        update board set likes=likes+1 where likes=#{likes}
-    </update>
-    <update id="unlike" parameterType="int">
-        update board set unlike=unlike+1 where unlike=#{unlike}
-    </update>
+
     <update id="updateBoard" parameterType="BoardDto">
         update board set title=#{title},content=#{content} <if test="photo!=null">,photo=#{photo}</if> where idx=#{idx}
     </update>
@@ -37,4 +32,12 @@
             SELECT LAST_INSERT_ID()
         </selectKey>
     </insert>
+
+    <update id="incrementLikes" parameterType="int">
+        update board set likes = likes + 1 where idx = #{idx}
+    </update>
+
+    <update id="incrementUnlikes" parameterType="int">
+        update board set unlikes = unlikes + 1 where idx = #{idx}
+    </update>
 </mapper>
