@@ -7,8 +7,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>프리미어리그</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@latest/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@latest/font/bootstrap-icons.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -20,7 +20,6 @@
             max-width: 1200px;
             margin: auto;
             padding: 20px;
-            margin-left: 140px;
         }
         .top-section {
             display: flex;
@@ -31,6 +30,7 @@
             width: 500px;
             overflow: hidden;
             position: relative;
+            padding: 20px;
         }
         .carousel {
             display: flex;
@@ -43,18 +43,30 @@
             border-radius: 5px;
             margin: 0 5px;
         }
-        .carousel-title {
-            text-align: center;
-            margin-bottom: 10px;
-            font-weight: bold;
-            color: blue;
+        .carousel-button {
+            margin-left: 20px;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 1;
+        }
+        .carousel-button.left {
+            left: 0;
+        }
+        .carousel-button.right {
+            right: 0;
         }
         .news-table {
             flex: 1;
+            margin-left: 20px;
         }
         .news-table table {
-            width: 100%;
-            margin-top: 50px;
+            width: 110%;
             border-collapse: collapse;
             background-color: white;
             border-radius: 5px;
@@ -67,7 +79,7 @@
             border-bottom: 1px solid #ddd;
         }
         .news-table th {
-            background-color: #a0b4e5;
+            background-color: #4CAF50;
             color: white;
         }
         .news-table a {
@@ -78,19 +90,17 @@
             text-decoration: underline;
         }
         .news-grid {
-            width: 1000px;
             display: flex;
             flex-wrap: wrap;
-            gap: 80px;
-            margin-top: 100px;
-            margin-left: 100px;
+            gap: 20px;
+            margin-top: 20px;
         }
         .news-card {
             background-color: white;
             border-radius: 5px;
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
             overflow: hidden;
-            width: calc(33.333% - 80px);
+            width: calc(33.333% - 20px);
         }
         .news-card img {
             width: 100%;
@@ -100,20 +110,15 @@
         .news-card p {
             margin: 10px;
         }
-        .carousel-controls {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
-            margin-top: 10px;
-        }
     </style>
 </head>
 <body>
 <div class="container">
+    <c:set var="root" value="<%=request.getContextPath()%>"/>
     <div class="top-section">
-        <div class="carousel-wrapper" style="margin-top: 40px;">
-            <div class="carousel-title">해외축구 이슈 Pick</div>
+        <div class="carousel-wrapper">
+            <div class="carousel-title"><b style="color: blue;">해외축구 이슈 Pick</b></div>
+            <button class="carousel-button left">&lt;</button>
             <div id="carouselExample" class="carousel">
                 <a href="https://m.sports.naver.com/wfootball/article/477/0000494019">
                     <img src="${root}/image/p1.png">
@@ -134,14 +139,17 @@
                     <img src="${root}/image/p6.png">
                 </a>
                 <a href="https://m.sports.naver.com/wfootball/article/117/0003837847">
+
                     <img src="${root}/image/p7.png">
                 </a>
                 <a href="https://m.sports.naver.com/wfootball/article/477/0000494014">
                     <img src="${root}/image/p8.png">
                 </a>
             </div>
+            <button class="carousel-button right">&gt;</button>
         </div>
-        <div class="news-table" style="margin-left: 100px;">
+
+        <div class="news-table" style="margin-left: 110px;">
             <table class="table">
                 <thead>
                 <tr>
@@ -177,41 +185,41 @@
             </table>
         </div>
     </div>
-    <c:set var="root" value="<%=request.getContextPath()%>"/>
+
     <div class="news-grid">
         <div class="news-card">
             <a href="https://m.sports.naver.com/wfootball/article/076/0004152391">
-                <img src="${root}/image/a1.png" style="width: 300px; height: 150px;">
+                <img src="${root}/image/a1.png">
                 <p>[오피셜]'기나긴 사가는 끝났다' 음바페, 레알...</p>
             </a>
         </div>
         <div class="news-card">
             <a href="https://m.sports.naver.com/wfootball/article/411/0000046955">
-                <img src="${root}/image/a2.png" style="width: 300px; height: 150px;">
+                <img src="${root}/image/a2.png">
                 <p>안토니보다 더 심각하다...'7경기 0골' FW 올...</p>
             </a>
         </div>
         <div class="news-card">
             <a href="https://m.sports.naver.com/wfootball/article/436/0000087049">
-                <img src="${root}/image/a3.png" style="width: 300px; height: 150px;">
+                <img src="${root}/image/a3.png">
                 <p>'독일 국대에 백인이 더 많아야죠?' 시대 역행...</p>
             </a>
         </div>
-        <div class="news-card" style="margin-top: 60px;">
+        <div class="news-card">
             <a href="https://m.sports.naver.com/wfootball/article/436/0000087050">
-                <img src="${root}/image/a4.png" style="width: 300px; height: 150px;">
+                <img src="${root}/image/a4.png">
                 <p>'저도 토트넘에서 나가고 싶어요' 러브콜 덥썩...</p>
             </a>
         </div>
-        <div class="news-card" style="margin-top: 60px;">
+        <div class="news-card">
             <a href="https://m.sports.naver.com/wfootball/article/108/0003240234">
-                <img src="${root}/image/a5.png" style="width: 300px; height: 150px;">
+                <img src="${root}/image/a5.png">
                 <p>첼시 마레스카 선임→곧바로 폭풍영입 준비...</p>
             </a>
         </div>
-        <div class="news-card" style="margin-top: 60px;">
+        <div class="news-card">
             <a href="https://m.sports.naver.com/wfootball/article/109/0005090418">
-                <img src="${root}/image/a6.png" style="width: 300px; height: 150px;">
+                <img src="${root}/image/a6.png">
                 <p>"팀을 협박했다"...'뒷통수 논란' 日 가마다...</p>
             </a>
         </div>
@@ -219,22 +227,35 @@
 </div>
 
 <script>
-    const carousel = document.querySelector('.carousel');
-    const images = document.querySelectorAll('.carousel img');
-    let currentIndex = 0;
-    const imageWidth = 110; // 이미지 너비 + 여백
-    const totalImages = images.length;
+    document.addEventListener('DOMContentLoaded', function() {
+        const carousel = document.querySelector('.carousel');
+        const images = document.querySelectorAll('.carousel img');
+        let currentIndex = 0;
+        const imageWidth = 110; // 이미지 너비 + 여백
+        const totalImages = images.length;
 
-    function autoSlide() {
-        currentIndex++;
-        if (currentIndex >= totalImages) {
-            currentIndex = 0;
+        function updateCarousel() {
+            carousel.style.transform = `translateX(${-currentIndex * imageWidth}px)`;
         }
-        carousel.style.transform = `translateX(${-currentIndex * imageWidth}px)`;
-    }
 
-    setInterval(autoSlide, 2000); // 2초마다 이미지 이동
+        document.querySelector('.carousel-button.left').addEventListener('click', () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+            } else {
+                currentIndex = totalImages - 1;
+            }
+            updateCarousel();
+        });
+
+        document.querySelector('.carousel-button.right').addEventListener('click', () => {
+            if (currentIndex < totalImages - 1) {
+                currentIndex++;
+            } else {
+                currentIndex = 0;
+            }
+            updateCarousel();
+        });
+    });
 </script>
-
 </body>
 </html>
