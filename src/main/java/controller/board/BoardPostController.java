@@ -16,8 +16,8 @@ public class BoardPostController {
     private BoardService boardService;
 
     @PostMapping("/like")
-    public String likePost(@RequestParam int likes) {
-        boardService.likes(likes);
+    public String likePost(@RequestParam int idx) {
+        boardService.likes(idx);
         return "board/detailpage";
     }
 

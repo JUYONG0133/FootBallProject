@@ -49,9 +49,9 @@ public class BoardService {
     {
         BoardInter.updateReadcount(idx);
     }
-    public void likes(int likes)
+    public void likes(int idx)
     {
-        BoardInter.likes(likes);
+        BoardInter.likes(idx);
     }
     public void unlike(int unlike)
     {
