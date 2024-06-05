@@ -49,6 +49,7 @@ public class BoardService {
     {
         BoardInter.updateReadcount(idx);
     }
+
     public void updateBoard(BoardDto dto){
         BoardInter.updateBoard(dto);
     }

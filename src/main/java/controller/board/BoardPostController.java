@@ -17,10 +17,12 @@ public class BoardPostController {
     private BoardService boardService;
 
     @PostMapping("/like")
+
     public ResponseEntity<BoardDto> likePost(@RequestParam int idx) {
         boardService.incrementLikes(idx);
         BoardDto updatedPost = boardService.getBoardByIdx(idx);
         return ResponseEntity.ok(updatedPost);
+
     }
 
     @PostMapping("/dislike")

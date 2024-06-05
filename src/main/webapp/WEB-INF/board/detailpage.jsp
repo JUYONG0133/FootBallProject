@@ -167,6 +167,7 @@
                     },
                     error: function(xhr, status, error) {
                         console.error('좋아요 요청 실패:', status, error);
+
                     }
                 });
             });
