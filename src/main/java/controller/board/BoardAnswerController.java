@@ -1,10 +1,13 @@
 package controller.board;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -25,9 +28,9 @@ public class BoardAnswerController {
     private MemberService memberService;
 
     @PostMapping("/ainsert")
-    public void insertAnswer(@RequestParam int num,
-                             @RequestParam String content,
-                             HttpSession session)
+    public Map<String,String> insertAnswer(@RequestParam int num,
+                            @RequestParam String content,
+                            HttpSession session)
     {
         //로그인한 아이디 얻기
         String myid=(String)session.getAttribute("loginid");
@@ -42,6 +45,9 @@ public class BoardAnswerController {
 
         //db insert
         answerService.insertAnswer(dto);
+        Map<String, String> map = new HashMap<>();
+        map.put("status","true");
+        return map;
     }
 
     @GetMapping("/alist")
