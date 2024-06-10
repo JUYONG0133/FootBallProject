@@ -21,7 +21,6 @@
         }
         .container {
             max-width: 1000px;
-            margin-left: 200px;
             background-color: #fff;
             padding: 20px;
             border-radius: 8px;
