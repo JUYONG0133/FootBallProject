@@ -46,4 +46,4 @@ FootBallProject는 축구 팬들에게 유익한 정보를 제공하며, 팬들 
 3. **커뮤니티 활동**: 게시판에서 글을 작성하고, 다른 사용자와 댓글을 통해 소통합니다.
 
 ## PPT
-FootBallProject.pdf
+[FootBallProject.pdf](https://github.com/user-attachments/files/16140689/FootBallProject.pdf)
