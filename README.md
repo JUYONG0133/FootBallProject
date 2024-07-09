@@ -7,6 +7,11 @@
 박주용  
 이병현
 
+
+## PPT
+[FootBallProject.pdf](https://github.com/user-attachments/files/16140689/FootBallProject.pdf)
+
+
 ## 프로젝트 소개
 FootBallProject는 축구 팬들을 위한 종합 커뮤니티 플랫폼으로, 유럽 주요 리그에 대한 다양한 정보를 제공합니다. 이 프로젝트는 다양한 API를 활용하여 다음과 같은 실시간 정보를 사용자에게 제공합니다:
 
@@ -44,6 +49,3 @@ FootBallProject는 축구 팬들에게 유익한 정보를 제공하며, 팬들 
 1. **회원 가입 및 로그인**: 사용자 계정을 생성하고 로그인합니다.
 2. **리그 정보 확인**: 원하는 리그의 경기 일정, 팀 순위, 개인 득점 순위, 선수 몸값 순위를 확인합니다.
 3. **커뮤니티 활동**: 게시판에서 글을 작성하고, 다른 사용자와 댓글을 통해 소통합니다.
-
-## PPT
-[FootBallProject.pdf](https://github.com/user-attachments/files/16140689/FootBallProject.pdf)
